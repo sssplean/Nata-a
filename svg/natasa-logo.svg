@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="500.0000011920929" height="180.00000327825524" style=""><rect id="backgroundrect" width="100%" height="100%" x="0" y="0" fill="none" stroke="none" style="" class=""/>
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="180" style=""><rect id="backgroundrect" width="100%" height="100%" x="0" y="0" fill="none" stroke="none" style="" class=""/>
  <!-- Created with SVG Editor - http://github.com/mzalive/SVG Editor/ -->
 
  <g style="">
@@ -12,9 +12,9 @@
   <title>Layer 1</title>
   <text font-weight="bold" xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="122" id="svg_3" y="126.276682" x="90.956194" stroke-width="0" stroke="#000" fill="#ffffff" class="" fill-opacity="1">ATA</text>
   <text font-weight="bold" xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="122" id="svg_4" y="126.360731" x="2.897593" stroke-width="0" stroke="#000" fill="#b59f5b" class="" fill-opacity="1">N</text>
-  <text font-weight="bold" xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="39" id="svg_5" y="168.674017" x="117.922373" stroke-width="0" stroke="#000" fill="#b59f5b" class="" fill-opacity="1">REAL ESTATE</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Verdana, Geneva, sans-serif" font-size="39" id="svg_5" y="172.37772064189147" x="99.40385514817046" stroke-width="0" stroke="#000" fill="#b59f5b" class="" fill-opacity="1" letter-spacing="0" opacity="1" font-weight="bold">REAL ESTATE</text>
   <text stroke="#000" font-style="normal" font-weight="bold" xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="122" id="svg_7" y="125.363157" x="323.99991" stroke-width="0" fill="#b59f5b" class="" fill-opacity="1">Š</text>
   <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="128" id="svg_9" y="224.697886" x="262.590472" stroke-width="0" stroke="#000" fill="#000000"/>
-  <text font-weight="bold" xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="122" id="svg_13" y="126.201883" x="403.364665" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#ffffff" class="selected" fill-opacity="1">A</text>
+  <text font-weight="bold" xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="122" id="svg_13" y="126.201883" x="403.364665" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#ffffff" class="" fill-opacity="1">A</text>
  </g>
 </svg>
