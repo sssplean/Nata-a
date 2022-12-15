@@ -272,7 +272,7 @@
       </div>
     </section>
     <div class="page-content">
-      <h2 class="section-title trends__section-title">Sve ponude</h2>
+      <h2 class="section-title page-content-title">Sve ponude</h2>
       <main class="main">
         <div class="posts">
           <article class="post">
@@ -466,8 +466,19 @@
         </div>
       </main>
       <aside class="sidebar">
+        <section class="searching type-search">
+          <h3 class="section-title sidebar__section-title">Vrsta oglasa</h3>
+          <ul class="teg-search-links">
+            <li class="teg-search__link__box">
+              <a href="#0" class="teg-search__link">Prodaja</a>
+            </li>
+            <li class="teg-search__link__box">
+              <a href="#0" class="teg-search__link">Izdavanje</a>
+            </li>
+          </ul>
+        </section>
         <section class="searching teg-search">
-          <h3 class="section-title sidebar__section-title">Vrsta</h3>
+          <h3 class="section-title sidebar__section-title">Vrsta objekta</h3>
           <ul class="teg-search-links">
             <li class="teg-search__link__box">
               <a href="#0" class="teg-search__link">Sve</a>
@@ -486,6 +497,12 @@
             </li>
             <li class="teg-search__link__box">
               <a href="#0" class="teg-search__link">Soba</a>
+            </li>
+            <li class="teg-search__link__box">
+              <a href="#0" class="teg-search__link">Hotel</a>
+            </li>
+            <li class="teg-search__link__box">
+              <a href="#0" class="teg-search__link">Građevinsko Zemljište</a>
             </li>
             <li class="teg-search__link__box">
               <a href="#0" class="teg-search__link">Zemljište</a>
@@ -733,7 +750,7 @@
               </label>
               <label class="max-meaning">
                 <p>Max m<sup>2</sup></p>
-                <input type="text" class="field" name="max" value="1000">
+                <input type="text" class="field" name="max" value="10000">
               </label>
             </div>
             <div class="range-controls">
@@ -771,7 +788,7 @@
           </form>
         </section>
       </aside>
-      <section class="agents">
+      <div class="agents">
         <h2 class="section-title agents__section-title">Naši agenti</h2>
         <article class="agent">
 			    <img src="images/agent_1.jpg" class="agent__poster" alt="Agent portrait">
@@ -884,7 +901,7 @@
             </div>
           </div>
         </article>
-      </section>
+      </div>
     </div>
     <footer class="footer">
       <ul class="social-icons">
@@ -915,53 +932,45 @@
       </div>
     </div>
     <div class="popup popup--hidden">
-      <form action="#0" class="feedback">
+      <form action="#0" class="callback">
         <button type="button" class="popup__button">
           <span class="visually-hidden">Закрыть всплывающее окно</span>
         </button>
-        <h2 class="section-title popup__section-title">Ваш фидбек</h2>
+        <h2 class="section-title popup__section-title">Red poziva</h2>
         <p>
-          Как часто вы заходите на сайт?
+          Unesite svoj broj telefona:
         </p>
-        <label class="feedback__visit-question">
-          <span class="visually-hidden">Меню выбора ответа</span>
-          <select class="field feedback__visit-question__field" required>
-            <option value="">Выберите подходящий ответ:</option>
-            <option value="1">Почти каждый день</option>
-            <option value="2">Два-три раза в неделю</option>
-            <option value="3">Раз в неделю</option>
-            <option value="4">Пару раз в месяц</option>
-            <option value="5">Давно не появлялся</option>
-            <option value="6">Зашёл впервые</option>
-          </select>
+        <label class="callback__telefon-question">
+          <span class="visually-hidden">Поле ввода номера телефона</span>
+          <input type="tel" class="field" placeholder="Vaš broj telefona" required>
         </label>
-        <div class="feedback__email-question">
+        <div class="callback__email-question">
           <p>
-            Вы подписаны на e-mail рассылку?
+            Da li ste pretplaćeni na e-mail bilten?
           </p>
           <div class="radio__box">
-            <label class="feedback__email-answer">
+            <label class="callback__email-answer">
               <span class="visually-hidden">Выбрать ответ - Да</span>
               <input type="radio" class="radio" name="yes-or-no" value="1" required>
-              <span class="radio__text">Да</span>
+              <span class="radio__text">Da</span>
             </label>
-            <label class="feedback__email-answer">
+            <label class="callback__email-answer">
               <span class="visually-hidden">Выбрать ответ - Нет</span>
               <input type="radio" class="radio" name="yes-or-no" value="2" required>
-              <span class="radio__text">Нет</span>
+              <span class="radio__text">Ne</span>
             </label>
           </div>
         </div>
         <p>
-          Расскажите, какой контент вы хотели бы видеть на нашем сайте?
+          Napišite detaljno šta tražite:
         </p>
-        <label class="feedback__additional-question">
+        <label class="callback__additional-question">
           <span class="visually-hidden">Напишите ваши пожелания</span>
-          <textarea class="field feedback__additional-question__field" placeholder="Может, больше рецептов?"></textarea>
+          <textarea class="field callback__additional-question__field" placeholder="Unesite svoje želje"></textarea>
         </label>
-        <button type="submit" class="send-request feedback__additional-question__button">
+        <button type="submit" class="send-request callback__additional-question__button">
           <span class="visually-hidden">Кнопка отправки фидбека</span>
-          Отправить
+          Pošalji
         </button>
       </form>
     </div>
