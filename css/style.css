@@ -60,14 +60,10 @@ body {
 
 button {
   border-radius: 0.3rem;
-  text-shadow: 0 0.15rem 0.15rem #2f4f4f;
-  filter: drop-shadow(0 0.15rem 0.15rem #2f4f4f);
-    -webkit-filter: drop-shadow(0 0.15rem 0.15rem #2f4f4f);
 }
 
 button:hover {
   cursor: pointer;
-  background-color: #2f4f4f;
   transition: 0.2s;
 }
 
@@ -530,18 +526,20 @@ button:hover {
 
   font-size: 0.8rem;
 
-  color: #939393;
+  color: #2f4f4f;
 }
 
 .broj__objekta {
   display: inline;
 
   font-size: 0.8rem;
+  color: #2f4f4f;
 }
 
 .post__lead {
   margin-top: 2.8rem;
 
+  color: #2f4f4f;
   font-weight: bold;
   line-height: 2;
 }
@@ -561,8 +559,16 @@ button:hover {
   flex-shrink: 0;
 }
 
-.object__link__button {
+.object-link__button {
   margin-left: 1rem;
+
+  text-shadow: 0 0.15rem 0.15rem #2f4f4f;
+  filter: drop-shadow(0 0.15rem 0.15rem #2f4f4f);
+    -webkit-filter: drop-shadow(0 0.15rem 0.15rem #2f4f4f);
+}
+
+.object-link__button:hover {
+  background-color: #2f4f4f;
 }
 
 /*--------------------ASIDE--------------------*/
@@ -585,8 +591,8 @@ button:hover {
   margin-bottom: 1.5rem;
 }
 
-.teg-search-links,
-.locations  {
+.teg-search-buttons,
+.location-buttons  {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -594,61 +600,61 @@ button:hover {
   list-style-type: none;
 }
 
-.teg-search__link__box,
-.all__locations,
-.location__box {
+.teg-search,
+.all-locations,
+.location {
   flex-grow: 1;
   margin: 0.2rem;
+  height: 1.8rem;
 
   font-size: 0.75rem;
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
+  text-shadow: none;
 
   color: #2f4f4f;
   border: 3px solid rgba(49, 79, 79, 0.1);
   border-radius: 0.7rem 0.2rem;
   box-shadow: 0 0.1rem 0.1rem #2f4f4f;
+  filter: none;
 }
 
-.teg-search__link__box:last-child {
-  flex-grow: 0;
-}
-
-.type-search .teg-search__link__box:last-child {
-  flex-grow: 1;
-}
-
-.teg-search__link {
-  display: block;
-  padding: 0.3rem;
-
-  font-size: 0.75rem;
-  font-weight: bold;
-  color: inherit;
-  text-transform: uppercase;
-}
-
-.teg-search__link__box:hover,
-.all__locations:hover,
-.location__box:hover {
+.teg-search:hover,
+.all-locations:hover,
+.location:hover {
   cursor: pointer;
   border-color: #b59f5b;
   transition: 0.2s;
 }
 
-.all__locations,
-.location__box {
-  width: 43%;
+.teg-search:active,
+.all-locations:active,
+.location:active {
+  background-color: #b59f5b;
+}
+
+.teg-search:last-child {
+  flex-grow: 0;
+  padding: 0 0.7rem;
+}
+
+.type-of-search .teg-search {
+  flex-grow: 1;
+  padding: 0;
+}
+
+.all-locations {
+  width: 100%;
+  margin-bottom: 1rem;
 }
 
 .location {
-  padding: 0.2rem;
+  width: 43%;
 }
 
-.all__locations {
-  width: 100%;
-  margin-bottom: 1rem;
+.interior__locations {
+  display: none;
 }
 
 .location__count {
@@ -657,8 +663,13 @@ button:hover {
   vertical-align: super;
 }
 
+.price-search .section-title::after,
+.square-search .section-title::after {
+  margin-bottom: 0;
+}
+
 .filter-range {
-  margin: 2rem auto;
+  margin: 0.8rem auto 2rem;
   text-transform: uppercase;
 }
 
@@ -686,6 +697,10 @@ button:hover {
     -webkit-filter: drop-shadow(0 0.15rem 0.15rem #2f4f4f);
 }
 
+.controls .field {
+  height: 2rem;
+}
+
 .field:focus {
   border: 0.1rem solid #b59f5b;
   outline: none;
@@ -693,7 +708,7 @@ button:hover {
 
 .controls .min-meaning,
 .controls .max-meaning {
-  width: 45%;
+  width: 37%;
 
   font-weight: bold;
   text-shadow: 0 0.25rem 0.25rem #2f4f4f;
@@ -785,6 +800,14 @@ button:hover {
   flex-shrink: 0;
   width: 3rem;
   margin-left: -0.3rem;
+
+  text-shadow: 0 0.15rem 0.15rem #2f4f4f;
+  filter: drop-shadow(0 0.15rem 0.15rem #2f4f4f);
+    -webkit-filter: drop-shadow(0 0.15rem 0.15rem #2f4f4f);
+}
+
+.search__button:hover {
+  background-color: #2f4f4f;
 }
 
 .search__button img {
@@ -796,8 +819,15 @@ button:hover {
 
 .subscribe__button {
   margin-top: 1rem;
+
+  text-shadow: 0 0.15rem 0.15rem #2f4f4f;
+  filter: drop-shadow(0 0.15rem 0.15rem #2f4f4f);
+    -webkit-filter: drop-shadow(0 0.15rem 0.15rem #2f4f4f);
 }
 
+.subscribe__button:hover {
+  background-color: #2f4f4f;
+}
 /*------------------AGENTS------------------*/
 
 .agents {
@@ -1233,6 +1263,18 @@ button:hover {
   transition: 0.3s;
 }
 
+.preload__hvr-svg {
+  display: none;
+  background-image:
+    url("../svg/telegram-hvr.svg"),
+    url("../svg/whatsapp-hvr.svg"),
+    url("../svg/viber-hvr.svg"),
+    url("../svg/fb-hvr.svg"),
+    url("../svg/inst-hvr.svg"),
+    url("../svg/vk-hvr.svg");
+  background-repeat: no-repeat;
+}
+
 @keyframes hoverWave {
   0% {
     box-shadow: 0 8px 10px rgba(181, 159, 91, 0.3), 0 0 0 0 rgba(181, 159, 91, 0.2), 0 0 0 0 rgba(181, 159, 91, 0.2);
@@ -1483,6 +1525,14 @@ button:hover {
     margin-bottom: 1rem;
   }
 
+  .post__purchase {
+    justify-content: space-between;
+  }
+
+  .object__link__button {
+    width: 40%;
+  }
+
   .sidebar {
     width: 27vw;
   }
@@ -1507,6 +1557,10 @@ button:hover {
 
   .agent {
     width: 38vw;
+  }
+
+  .agent__poster {
+    width: 17rem;
   }
 
   .footer {
@@ -1687,6 +1741,14 @@ button:hover {
     margin-top: 0.3rem;
   }
 
+  .post__purchase {
+    justify-content: space-between;
+  }
+
+  .object__link__button {
+    width: 40%;
+  }
+
   .sidebar {
     order: -1;
     width: calc(94vw - 2rem);
@@ -1783,7 +1845,7 @@ button:hover {
 
   .callback-bt {
     position: absolute;
-    top: 1.5rem;
+    top: 1.3rem;
     left: 4vw;
     width: 2.4rem;
     height: 2.4rem;
