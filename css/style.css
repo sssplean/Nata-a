@@ -315,6 +315,7 @@ button:hover {
 
 .trend:hover::after {
   opacity: 0.2;
+  transition: 0.2s;
 }
 
 .trend__first {
@@ -528,7 +529,7 @@ button:hover {
   font-size: 0.8rem;
 }
 
-.broj__objekta {
+.object__id {
   display: inline;
 
   font-size: 0.8rem;
@@ -631,7 +632,10 @@ button:hover {
 
 .teg-search:active,
 .all-locations:active,
-.location:active {
+.location:active,
+.teg-search__activated,
+.all-locations__activated,
+.location__activated {
   background-color: #b59f5b;
 }
 
@@ -654,14 +658,14 @@ button:hover {
   width: 43%;
 }
 
-.interior__locations {
-  display: none;
-}
-
 .location__count {
   font-size: 0.6rem;
   color: #b59f5b;
   vertical-align: super;
+}
+
+.interior__locations {
+  display: none;
 }
 
 .price-search .section-title::after,
@@ -972,6 +976,10 @@ button:hover {
   background-image: url("../svg/viber.svg");
 }
 
+.social-link__e-mail {
+  background-image: url("../svg/email.svg");
+}
+
 .social-link__telegram:hover {
   background-image: url("../svg/telegram-hvr.svg");
   transition: 0.2s;
@@ -986,6 +994,11 @@ button:hover {
   background-image: url("../svg/viber-hvr.svg");
   transition: 0.2s;
 }
+
+.social-link__e-mail:hover {
+  background-image: url("../svg/email-hvr.svg");
+}
+
 
 /*-------------------FOOTER-------------------*/
 .footer {
@@ -1251,7 +1264,7 @@ button:hover {
 }
 
 .callback-bt img {
-  margin-top: 23%;
+  margin-top: 24%;
   width: 52%;
   color: #ffffff;
   transition: 0.3s;
@@ -1276,7 +1289,8 @@ button:hover {
     url("../svg/viber-hvr.svg"),
     url("../svg/fb-hvr.svg"),
     url("../svg/inst-hvr.svg"),
-    url("../svg/vk-hvr.svg");
+    url("../svg/vk-hvr.svg"),
+    url("../svg/email-hvr.svg");
   background-repeat: no-repeat;
 }
 
