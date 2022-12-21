@@ -594,7 +594,7 @@ button:hover {
 }
 
 .teg-search-buttons,
-.location-buttons  {
+.locations-buttons {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -633,9 +633,7 @@ button:hover {
 .teg-search:active,
 .all-locations:active,
 .location:active,
-.teg-search__activated,
-.all-locations__activated,
-.location__activated {
+.teg-search__activated {
   background-color: #b59f5b;
 }
 
@@ -649,6 +647,10 @@ button:hover {
   padding: 0;
 }
 
+#reset {
+  color: #969393;
+}
+
 .all-locations {
   width: 100%;
   margin-bottom: 1rem;
@@ -659,13 +661,24 @@ button:hover {
 }
 
 .location__count {
+  margin-left: 0.2rem;
+
   font-size: 0.6rem;
   color: #b59f5b;
   vertical-align: super;
 }
 
+.all-interior-locations {
+  margin-bottom: 0.5rem;
+}
+
 .interior__locations {
   display: none;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 1rem;
+
+  list-style-type: none;
 }
 
 .price-search .section-title::after,
