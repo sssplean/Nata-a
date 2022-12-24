@@ -1,3 +1,6 @@
+// Типы сделки //
+
+// Тег продажи
 function initSale() {
   if (document.getElementById('sale').classList.contains('teg-search__activated')) {
     document.getElementById('sale').classList.remove('teg-search__activated');
@@ -6,7 +9,7 @@ function initSale() {
     document.getElementById('sale').classList.add('teg-search__activated');
   }
 }
-
+// Тег аренды
 function initRent() {
   if (document.getElementById('rent').classList.contains('teg-search__activated')) {
     document.getElementById('rent').classList.remove('teg-search__activated');
@@ -16,6 +19,9 @@ function initRent() {
   }
 }
 
+// Типы объектов //
+
+// Автоактивация тега "ВСЕ"
 function objectsCheck() {
   if (((((((
     document.getElementById('house').classList.contains('teg-search__activated') &&
@@ -27,9 +33,9 @@ function objectsCheck() {
     document.getElementById('land-for-building').classList.contains('teg-search__activated')) &&
     document.getElementById('land-plot').classList.contains('teg-search__activated')) {
       document.getElementById('all-objects').classList.add('teg-search__activated')
-    }
+  }
 }
-
+// Активация тега типа объекта
 function initObjectTeg(teg) {
   if (document.getElementById('all-objects').classList.contains('teg-search__activated')) {
     document.getElementById('all-objects').classList.remove('teg-search__activated');
@@ -49,7 +55,7 @@ function initObjectTeg(teg) {
   }
   objectsCheck();
 }
-
+// Ручная активация тега "ВСЕ"
 function initAllObjectsTegs() {
   if (document.getElementById('all-objects').classList.contains('teg-search__activated')) {
     document.getElementById('all-objects').classList.remove('teg-search__activated');
@@ -74,6 +80,9 @@ function initAllObjectsTegs() {
   }
 }
 
+// Дополнительные опции //
+
+// Активация дополнительных поисковых опций
 function initPatternTeg(teg) {
   if (document.getElementById(teg).classList.contains('teg-search__activated')) {
     document.getElementById(teg).classList.remove('teg-search__activated');
@@ -81,7 +90,7 @@ function initPatternTeg(teg) {
     document.getElementById(teg).classList.add('teg-search__activated');
   }
 }
-
+// Сброс всех дополнительных поисковых опций
 function resetPatterns() {
     document.getElementById('one-room').classList.remove('teg-search__activated');
     document.getElementById('two-rooms').classList.remove('teg-search__activated');
@@ -97,30 +106,11 @@ function resetPatterns() {
     document.getElementById('sea-view').classList.remove('teg-search__activated');
 }
 
-// Все локации
+// Выбор локаций //
 
-function initInteriorLocationsTeg(teg) {
-  let iteriorTeg = teg + '-interior';
-  if (document.getElementById(teg).classList.contains('Interior-Locations__activated')) {
-    document.getElementById(teg).classList.remove('Interior-Locations__activated');
-    document.getElementById(iteriorTeg).style.display = 'none';
-    document.getElementById('all-locations').style.display = 'block';
-    document.getElementById('herceg-novi').style.display = 'block';
-    document.getElementById('kotor').style.display = 'inline';
-    document.getElementById('tivat').style.display = 'block';
-    document.getElementById('budva').style.display = 'block';
-  } else {
-    document.getElementById(teg).classList.add('Interior-Locations__activated')
-    document.getElementById('all-locations').style.display = 'none';
-    document.getElementById('herceg-novi').style.display = 'none';
-    document.getElementById('kotor').style.display = 'none';
-    document.getElementById('tivat').style.display = 'none';
-    document.getElementById('budva').style.display = 'none';
-    document.getElementById(teg).style.display = 'block';
-    document.getElementById(iteriorTeg).style.display = 'flex';
-  }
-}
+// Все локации //
 
+// Автоактивация тега "ВСЕ"
 function allLocationsCheck() {
   if (((
     document.getElementById('hn-interior-locations').classList.contains('teg-search__activated') &&
@@ -131,7 +121,7 @@ function allLocationsCheck() {
       document.getElementById('all-locations').classList.remove('teg-search__disactivated');
     }
 }
-
+// Подсчёт выбрынных локаций
 function allInitLocationsCount() {
   document.getElementById('all-locations-count').innerHTML =
   Number(document.getElementById('hn-count').innerHTML) +
@@ -142,7 +132,7 @@ function allInitLocationsCount() {
     document.getElementById('all-locations-count').innerHTML = '';
   }
 }
-
+// Ручная активация тега "ВСЕ"
 function initAllLocationsTegs() {
   if (document.getElementById('all-locations').classList.contains('teg-search__activated')) {
     if (document.getElementById('hn-interior-locations').classList.contains('teg-search__disactivated')) {
@@ -185,9 +175,32 @@ function initAllLocationsTegs() {
     document.getElementById('all-locations-count').innerHTML = '';
   }
 }
+// Раскрытие блоков внутренних локаций регионов
+function initInteriorLocationsTeg(teg) {
+  let iteriorTeg = teg + '-interior';
+  if (document.getElementById(teg).classList.contains('Interior-Locations__activated')) {
+    document.getElementById(teg).classList.remove('Interior-Locations__activated');
+    document.getElementById(iteriorTeg).style.display = 'none';
+    document.getElementById('all-locations').style.display = 'block';
+    document.getElementById('herceg-novi').style.display = 'block';
+    document.getElementById('kotor').style.display = 'inline';
+    document.getElementById('tivat').style.display = 'block';
+    document.getElementById('budva').style.display = 'block';
+  } else {
+    document.getElementById(teg).classList.add('Interior-Locations__activated')
+    document.getElementById('all-locations').style.display = 'none';
+    document.getElementById('herceg-novi').style.display = 'none';
+    document.getElementById('kotor').style.display = 'none';
+    document.getElementById('tivat').style.display = 'none';
+    document.getElementById('budva').style.display = 'none';
+    document.getElementById(teg).style.display = 'block';
+    document.getElementById(iteriorTeg).style.display = 'flex';
+  }
+}
 
 // Херцег Нови
 
+// Автоактивация тега "ВСЕ"
 function HNinteriorLocationsCheck() {
   if (((((((((((((((((((((((((((((
     document.getElementById('hn-centar').classList.contains('teg-search__activated') &&
@@ -223,7 +236,7 @@ function HNinteriorLocationsCheck() {
       document.getElementById('hn-interior-locations').classList.add('teg-search__activated')
   }
 }
-
+// Активация тегов локаций
 function initHNLocationTeg(teg) {
   if (document.getElementById('hn-interior-locations').classList.contains('teg-search__activated')) {
     document.getElementById('hn-interior-locations').classList.remove('teg-search__activated');
@@ -273,7 +286,7 @@ function initHNLocationTeg(teg) {
   HNinteriorLocationsCheck();
   allLocationsCheck();
 }
-
+// Ручная активация тега "ВСЕ"
 function initAllHNLocationsTegs() {
   if (document.getElementById('hn-interior-locations').classList.contains('teg-search__activated')) {
     document.getElementById('hn-interior-locations').classList.remove('teg-search__activated');
@@ -309,6 +322,10 @@ function initAllHNLocationsTegs() {
     document.getElementById('bijela').classList.remove('teg-search__activated');
     document.getElementById('kamenari').classList.remove('teg-search__activated');
     document.getElementById('hn-count').innerHTML = '';
+    if (document.getElementById('all-locations').classList.contains('teg-search__activated')) {
+      document.getElementById('all-locations').classList.remove('teg-search__activated');
+      document.getElementById('all-locations').classList.add('teg-search__disactivated');
+    }
     allInitLocationsCount();
     allLocationsCheck();
   } else {
@@ -352,13 +369,14 @@ function initAllHNLocationsTegs() {
 
 // Котор
 
+// Автоактивация тега "ВСЕ"
 function KotorinteriorLocationsCheck() {
   if (document.getElementById('kotor-stari-grad').classList.contains('teg-search__activated') &&
     document.getElementById('dobrota').classList.contains('teg-search__activated')) {
       document.getElementById('kotor-interior-locations').classList.add('teg-search__activated')
   }
 }
-
+// Активация тегов локаций
 function initKotorLocationTeg(teg) {
   if (document.getElementById('kotor-interior-locations').classList.contains('teg-search__activated')) {
     document.getElementById('kotor-interior-locations').classList.remove('teg-search__activated');
@@ -380,7 +398,7 @@ function initKotorLocationTeg(teg) {
   KotorinteriorLocationsCheck();
   allLocationsCheck();
 }
-
+// Ручная активация тега "ВСЕ"
 function initAllKotorLocationsTegs() {
   if (document.getElementById('kotor-interior-locations').classList.contains('teg-search__activated')) {
     document.getElementById('kotor-interior-locations').classList.remove('teg-search__activated');
@@ -388,6 +406,10 @@ function initAllKotorLocationsTegs() {
     document.getElementById('kotor-stari-grad').classList.remove('teg-search__activated');
     document.getElementById('dobrota').classList.remove('teg-search__activated');
     document.getElementById('kotor-count').innerHTML = '';
+    if (document.getElementById('all-locations').classList.contains('teg-search__activated')) {
+      document.getElementById('all-locations').classList.remove('teg-search__activated');
+      document.getElementById('all-locations').classList.add('teg-search__disactivated');
+    }
     allInitLocationsCount();
     allLocationsCheck();
   } else {
@@ -403,6 +425,7 @@ function initAllKotorLocationsTegs() {
 
 // Тиват
 
+// Автоактивация тега "ВСЕ"
 function TivatinteriorLocationsCheck() {
   if (
     document.getElementById('tivat-centar').classList.contains('teg-search__activated') &&
@@ -410,7 +433,7 @@ function TivatinteriorLocationsCheck() {
       document.getElementById('tivat-interior-locations').classList.add('teg-search__activated')
   }
 }
-
+// Активация тегов локаций
 function initTivatLocationTeg(teg) {
   if (document.getElementById('tivat-interior-locations').classList.contains('teg-search__activated')) {
     document.getElementById('tivat-interior-locations').classList.remove('teg-search__activated');
@@ -432,7 +455,7 @@ function initTivatLocationTeg(teg) {
   TivatinteriorLocationsCheck();
   allLocationsCheck();
 }
-
+// Ручная активация тега "ВСЕ"
 function initAllTivatLocationsTegs() {
   if (document.getElementById('tivat-interior-locations').classList.contains('teg-search__activated')) {
     document.getElementById('tivat-interior-locations').classList.remove('teg-search__activated');
@@ -440,6 +463,10 @@ function initAllTivatLocationsTegs() {
     document.getElementById('tivat-centar').classList.remove('teg-search__activated');
     document.getElementById('lastva').classList.remove('teg-search__activated');
     document.getElementById('tivat-count').innerHTML = '';
+    if (document.getElementById('all-locations').classList.contains('teg-search__activated')) {
+      document.getElementById('all-locations').classList.remove('teg-search__activated');
+      document.getElementById('all-locations').classList.add('teg-search__disactivated');
+    }
     allInitLocationsCount();
     allLocationsCheck();
   } else {
@@ -455,13 +482,14 @@ function initAllTivatLocationsTegs() {
 
 // Будва
 
+// Автоактивация тега "ВСЕ"
 function BudvainteriorLocationsCheck() {
   if (document.getElementById('budva-centar').classList.contains('teg-search__activated') &&
     document.getElementById('becici').classList.contains('teg-search__activated')) {
       document.getElementById('budva-interior-locations').classList.add('teg-search__activated')
   }
 }
-
+// Активация тегов локаций
 function initBudvaLocationTeg(teg) {
   if (document.getElementById('budva-interior-locations').classList.contains('teg-search__activated')) {
     document.getElementById('budva-interior-locations').classList.remove('teg-search__activated');
@@ -483,7 +511,7 @@ function initBudvaLocationTeg(teg) {
   BudvainteriorLocationsCheck();
   allLocationsCheck();
 }
-
+// Ручная активация тега "ВСЕ"
 function initAllBudvaLocationsTegs() {
   if (document.getElementById('budva-interior-locations').classList.contains('teg-search__activated')) {
     document.getElementById('budva-interior-locations').classList.remove('teg-search__activated');
@@ -491,6 +519,10 @@ function initAllBudvaLocationsTegs() {
     document.getElementById('budva-centar').classList.remove('teg-search__activated');
     document.getElementById('becici').classList.remove('teg-search__activated');
     document.getElementById('budva-count').innerHTML = '';
+    if (document.getElementById('all-locations').classList.contains('teg-search__activated')) {
+      document.getElementById('all-locations').classList.remove('teg-search__activated');
+      document.getElementById('all-locations').classList.add('teg-search__disactivated');
+    }
     allInitLocationsCount();
     allLocationsCheck();
   } else {
@@ -503,3 +535,30 @@ function initAllBudvaLocationsTegs() {
     allLocationsCheck();
   }
 }
+
+// Активация тегов через хэш-конторль //
+
+if(window.location.hash == "#sale-start") {
+  initSale();
+} else if(window.location.hash == "#rent-start") {
+  initRent();
+}
+
+// Форма обратной связи //
+
+function openPopup(id) {
+  document.getElementById(id).classList.remove('popup--hidden');
+  document.getElementById('callback-button').classList.add('popup--hidden');
+}
+
+function closePopup(id) {
+  document.getElementById(id).classList.add('popup--hidden');
+  document.getElementById('callback-button').classList.remove('popup--hidden');
+}
+
+
+
+
+// 1. Переместить поиск и подписку в мобайл после агентов
+// 2.
+// 3.

@@ -686,6 +686,21 @@ body {
   align-items: center;
 }
 
+/*-------------------POPUP-------------------*/
+
+.popup {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /*-----------------POPUP  ON-----------------*/
 
 .popup--hidden {
@@ -694,10 +709,9 @@ body {
 
 /*----------------POPUP  OFF----------------*/
 
-.callback {
-  position: sticky;
+.popup-form {
+  position: fixed;
   z-index: 2;
-  top: 2rem;
 
   width: 20rem;
   padding: 3rem 1.9rem 3.4rem;
@@ -744,11 +758,11 @@ body {
   cursor: pointer;
 }
 
-.callback__telefon-question input {
+.popup__telefon-question input {
   margin-top: 0.5rem;
 }
 
-.callback__email-question {
+.popup__radio-question {
   margin-top: 2rem;
 }
 
@@ -785,7 +799,7 @@ body {
   background-image: url("../svg/form-circle.svg");
 }
 
-.callback__additional-question__field {
+.popup__additional-question__field {
   height: 8rem;
   margin-top: 0.7rem;
   padding-top: 1rem;
@@ -793,14 +807,22 @@ body {
   resize: none;
 }
 
-.callback__additional-question__button {
+.popup__request-button {
   width: 100%;
   margin-top: 1.5rem;
+
+  text-shadow: 0 0.15rem 0.15rem #2f4f4f;
+  filter: drop-shadow(0 0.15rem 0.15rem #2f4f4f);
+    -webkit-filter: drop-shadow(0 0.15rem 0.15rem #2f4f4f);
+}
+
+.popup__request-button:hover {
+  background-color: #2f4f4f;
 }
 
 /*---------------CALLBACK-BUTTON---------------*/
 
-.callback-bt {
+.callback-button {
   position: fixed;
   z-index: 4;
   right: 3%;
@@ -821,7 +843,7 @@ body {
     -webkit-animation: hoverWave linear 1s infinite;
 }
 
-.callback-bt .text-call{
+.callback-button .text-call{
   text-align: center;
   height: 100%;
   width: 100%;
@@ -832,7 +854,7 @@ body {
     -webkit-filter: drop-shadow(0 0.05rem 0.05rem #2f4f4f);
 }
 
-.callback-bt .text-call span {
+.callback-button .text-call span {
   text-align: center;
   color: #b59f5b;
   opacity: 0;
@@ -847,20 +869,20 @@ body {
   font-family: 'montserrat', Arial, Helvetica, sans-serif;
 }
 
-.callback-bt .text-call:hover span {
+.callback-button .text-call:hover span {
   opacity: 1;
   font-size: 0.7rem;
   transition: 0.3s;
 }
 
-.callback-bt:hover {
+.callback-button:hover {
   z-index: 5;
   background-color: #f4f7f6;
   color: transparent;
   transition: 0.3s;
 }
 
-.callback-bt img {
+.callback-button img {
   margin-top: 24%;
   width: 52%;
   color: #ffffff;
@@ -872,7 +894,7 @@ body {
     -webkit-animation-iteration-count: infinite;
 }
 
-.callback-bt:hover img {
+.callback-button:hover img {
   display: none;
   color: #b59f5b;
   transition: 0.3s;
@@ -1062,7 +1084,7 @@ body {
   .burger__button {
     position: absolute;
     display: flex;
-    top: -0.5rem;
+    top: -1rem;
     right: 0;
   }
 
@@ -1114,15 +1136,6 @@ body {
     margin: 3rem auto 0;
   }
 
-  .main {
-    width: 60vw;
-  }
-
-  .posts {
-    padding: 1rem;
-    width: 100%;
-  }
-
   .post {
     flex-flow: column;
   }
@@ -1139,36 +1152,6 @@ body {
     margin-top: 1rem;
     margin-left: 0;
     margin-bottom: 1rem;
-  }
-
-  .post__purchase {
-    justify-content: space-between;
-  }
-
-  .object__link__button {
-    width: 40%;
-  }
-
-  .sidebar {
-    width: 27vw;
-  }
-
-  .sidebar section {
-    margin-bottom: 1rem;
-  }
-
-  .sidebar__section-title,
-  .controls .min-meaning p,
-  .controls .max-meaning p {
-    font-size: 0.8rem;
-  }
-
-  .location {
-    font-size: 0.6rem;
-  }
-
-  .locations a {
-    font-size: 0.4rem;
   }
 
   .agent {
@@ -1290,21 +1273,6 @@ body {
     line-height: 1.4;
   }
 
-  .trends{
-    margin-top: 1.5rem;
-  }
-
-  .section-title {
-    margin-top: 1.5rem;
-    font-size: 1rem;
-  }
-
-  .trend__content {
-    margin-right: 1rem;
-    margin-left: 1rem;
-    padding: 1.5rem 1rem;
-  }
-
   .page-content {
     flex-flow: column;
     align-items: center;
@@ -1312,10 +1280,8 @@ body {
     margin-top: 1.5rem;
   }
 
-  .posts {
-    width: calc(94vw - 1rem);
-    margin-top: 1rem;
-    padding: 0.5rem;
+  .main {
+    width: 100%;
   }
 
   .post {
@@ -1333,6 +1299,12 @@ body {
   .post__content {
     margin-top: 0.8rem;
     margin-left: 0;
+    width: 100%;
+  }
+
+  .post__infos {
+    flex-flow: column;
+    align-items: flex-start;
   }
 
   .title {
@@ -1357,35 +1329,22 @@ body {
     margin-top: 0.3rem;
   }
 
-  .post__purchase {
-    justify-content: space-between;
+  .specification {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    width: 7rem;
   }
 
-  .object__link__button {
-    width: 40%;
+  .specification-text {
+    font-size: 0.8rem;
   }
 
-  .sidebar {
-    order: -1;
-    width: calc(94vw - 2rem);
-    margin-top: 0;
+  .specification:last-child {
+    width: 9rem;
   }
 
-  .sidebar__section-title {
-    margin: 0;
-  }
-
-  .searching {
-    margin-top: 2rem;
-  }
-
-  .search-request,     /*   Надо переместить в конец, после агентов  */
-  .subscribe {
-    display: none;
-  }
-
-  .teg-search__link__box {
-    margin-right: 0.2rem;
+  .specification:last-child .specification-text {
+    font-size: 1rem;
   }
 
   .agents {
@@ -1425,27 +1384,18 @@ body {
     margin: -2.4rem 0 0 -0.5rem;
   }
 
-  .callback {
+  .popup-form {
+    top: 1.5rem;
     width: 17rem;
     padding: 1rem 1rem 1.5rem;
   }
 
-  .callback__email-question {
+  .popup__radio-question {
     margin-top: 1rem;
   }
 
   .radio__box {
     margin-bottom: 0.5rem;
-  }
-
-  .callback__additional-question__field {
-    height: 3rem;
-    resize: none;
-  }
-
-  .callback__additional-question__button {
-    width: 80%;
-    margin-top: 1rem;
   }
 
   .radio__text {
@@ -1459,7 +1409,17 @@ body {
     background-size: 1.6rem;
   }
 
-  .callback-bt {
+  .popup__additional-question__field {
+    height: 3rem;
+    resize: none;
+  }
+
+  .callback__request-button {
+    width: 80%;
+    margin-top: 1rem;
+  }
+
+  .callback-button {
     position: absolute;
     top: 1.3rem;
     left: 4vw;
@@ -1467,7 +1427,7 @@ body {
     height: 2.4rem;
   }
 
-  .callback-bt .text-call:hover span {
+  .callback-button .text-call:hover span {
     font-size: 0.4rem;
     line-height: 0.6rem;
   }

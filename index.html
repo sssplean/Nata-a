@@ -30,10 +30,10 @@
               <a class="menu__link" href="#0">Zanimljivo</a>
             </li>-->
             <li class="menu__link__box">
-              <a class="menu__link" href="#0">Prodavcima</a>
+              <a class="menu__link" href="#seller" onclick="openPopup('seller-popup')">Prodavcima</a>
             </li>
             <li class="menu__link__box">
-              <a class="menu__link" href="#0">O nama</a>
+              <a class="menu__link" href="#about">O nama</a>
             </li>
             <li class="menu__link__box">
               <a class="menu__link" href="#contacts">Kontakti</a>
@@ -602,7 +602,7 @@
               <p class="phone-number">
                 Broj telefona:
                 <a href="tel:+382 67 66 888 7">
-                  +382 67 66 888 7
+                  +382 676 688 87
                 </a>
               </p>
               <ul class="social-links">
@@ -676,7 +676,7 @@
               <p class="phone-number">
                 Broj telefona:
                 <a href="tel:+382 000 000 001">
-                  +382 000 000 001
+                  +382 000 000 01
                 </a>
               </p>
               <ul class="social-links">
@@ -723,36 +723,36 @@
         <p class="copyright__text">Copyright D.O.O. Natašakayeni © 2009–2023</p>
       </a>
     </footer>
-    <div type="button" class="callback-bt">
+    <div type="button" class="callback-button" id="callback-button" onclick="openPopup('customer-popup')">
       <div class="text-call">
         <img src="svg/phone.svg" alt="Telefon">
         <span>Zatražite<br>poziv</span>
       </div>
     </div>
-    <div class="popup popup--hidden">
-      <form action="#0" class="callback">
-        <button type="button" class="popup__button">
+    <div class="popup popup--hidden" id="customer-popup">
+      <form action="#0" class="popup-form">
+        <button type="button" class="popup__button" onclick="closePopup('customer-popup')">
           <span class="visually-hidden">Закрыть всплывающее окно</span>
         </button>
         <h2 class="section-title popup__section-title">Red poziva</h2>
         <p>
           Unesite svoj broj telefona:
         </p>
-        <label class="callback__telefon-question">
+        <label class="popup__telefon-question">
           <span class="visually-hidden">Поле ввода номера телефона</span>
           <input type="tel" class="field" placeholder="Vaš broj telefona" required>
         </label>
-        <div class="callback__email-question">
+        <div class="popup__radio-question">
           <p>
             Da li ste pretplaćeni na e-mail bilten?
           </p>
           <div class="radio__box">
-            <label class="callback__email-answer">
+            <label class="popup__answer">
               <span class="visually-hidden">Выбрать ответ - Да</span>
               <input type="radio" class="radio" name="yes-or-no" value="1" required>
               <span class="radio__text">Da</span>
             </label>
-            <label class="callback__email-answer">
+            <label class="popup__answer">
               <span class="visually-hidden">Выбрать ответ - Нет</span>
               <input type="radio" class="radio" name="yes-or-no" value="2" required>
               <span class="radio__text">Ne</span>
@@ -762,11 +762,70 @@
         <p>
           Napišite detaljno šta tražite:
         </p>
-        <label class="callback__additional-question">
+        <label class="popup__additional-question">
           <span class="visually-hidden">Напишите ваши пожелания</span>
-          <textarea class="field callback__additional-question__field" placeholder="Unesite svoje želje"></textarea>
+          <textarea class="field popup__additional-question__field" placeholder="Unesite svoje želje"></textarea>
         </label>
-        <button type="submit" class="send-request callback__additional-question__button">
+        <button type="submit" class="send-request popup__request-button" onclick="closePopup('customer-popup')">
+          <span class="visually-hidden">Кнопка отправки фидбека</span>
+          Pošalji
+        </button>
+      </form>
+    </div>
+    <div class="popup popup--hidden" id="seller-popup">
+      <form action="#0" class="popup-form">
+        <button type="button" class="popup__button" onclick="closePopup('seller-popup')">
+          <span class="visually-hidden">Закрыть всплывающее окно</span>
+        </button>
+        <h2 class="section-title popup__section-title">Red poziva</h2>
+        <p>
+          Unesite svoj broj telefona:
+        </p>
+        <label class="popup__telefon-question">
+          <span class="visually-hidden">Поле ввода номера телефона</span>
+          <input type="tel" class="field" placeholder="Vaš broj telefona" required>
+        </label>
+        <div class="popup__radio-question">
+          <p>
+            Šta je potrebno?
+          </p>
+          <div class="radio__box">
+            <label class="popup__radio-answer">
+              <span class="visually-hidden">Выбрать ответ - Продать</span>
+              <input type="radio" class="radio" name="one-or-two" value="1" required>
+              <span class="radio__text">Prodaja</span>
+            </label>
+            <label class="popup__radio-answer">
+              <span class="visually-hidden">Выбрать ответ - Сдать</span>
+              <input type="radio" class="radio" name="one-or-two" value="2" required>
+              <span class="radio__text">Izdavanje</span>
+            </label>
+          </div>
+        <div class="popup__radio-question">
+          <p>
+            Jeste li vlasnik?
+          </p>
+          <div class="radio__box">
+            <label class="popup__radio-answer">
+              <span class="visually-hidden">Выбрать ответ - Да</span>
+              <input type="radio" class="radio" name="yes-or-no" value="1" required>
+              <span class="radio__text">Da</span>
+            </label>
+            <label class="popup__radio-answer">
+              <span class="visually-hidden">Выбрать ответ - Нет</span>
+              <input type="radio" class="radio" name="yes-or-no" value="2" required>
+              <span class="radio__text">Ne</span>
+            </label>
+          </div>
+        </div>
+        <p>
+          Napišite detaljno šta tražite:
+        </p>
+        <label class="popup__additional-question">
+          <span class="visually-hidden">Напишите ваши пожелания</span>
+          <textarea class="field popup__additional-question__field" placeholder="Unesite svoje želje"></textarea>
+        </label>
+        <button type="submit" class="send-request popup__request-button" onclick="closePopup('seller-popup')">
           <span class="visually-hidden">Кнопка отправки фидбека</span>
           Pošalji
         </button>
