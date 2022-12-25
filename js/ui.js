@@ -544,21 +544,30 @@ if(window.location.hash == "#sale-start") {
   initRent();
 }
 
+// Теги из постов //
+
+function initPostTeg(teg) {
+  document.getElementById(teg).click();
+}
+
 // Форма обратной связи //
 
 function openPopup(id) {
-  document.getElementById(id).classList.remove('popup--hidden');
-  document.getElementById('callback-button').classList.add('popup--hidden');
+  document.getElementById(id).style.visibility = 'visible';
+  document.getElementById(id).style.opacity = '1';
+  document.getElementById('callback-button').style.visibility = 'hidden';
+  document.getElementById('callback-button').style.opacity = '0';
 }
 
 function closePopup(id) {
-  document.getElementById(id).classList.add('popup--hidden');
-  document.getElementById('callback-button').classList.remove('popup--hidden');
-}
+  document.getElementById(id).style.visibility = 'hidden';
+  document.getElementById(id).style.opacity = '0';
+  document.getElementById('callback-button').style.visibility = 'visible';
+  document.getElementById('callback-button').style.opacity = '1';}
 
 
 
 
 // 1. Переместить поиск и подписку в мобайл после агентов
-// 2.
-// 3.
+// 2. Автоформирование тегов в постах
+// 3. Работа фильтра
