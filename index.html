@@ -38,6 +38,9 @@
             <li class="menu__link__box">
               <a class="menu__link" href="#contacts">Kontakti</a>
             </li>
+            <li class="menu__link__box">                 <!--Временная ссылка-->
+              <a class="menu__link" href="create.html" target="_self">Dodaj objekat</a>
+            </li>
           </ul>
         </nav>
         <h1 class="header__title">Prodaja i izdavanje nekretnina u Opštini Herceg&nbspNovi</h1>
@@ -672,10 +675,10 @@
             </div>
             <div class="range-controls">
               <div class="scale">
-                <div class="bar"></div>
+                <div class="bar" id="price-bar"></div>
               </div>
-              <div class="range-toggle range-toggle-min"></div>
-              <div class="range-toggle range-toggle-max"></div>
+              <div class="range-toggle range-toggle-min" id="price-toggle-min" onclick="toggleMove('price-toggle-min')"></div>
+              <div class="range-toggle range-toggle-max" id="price-toggle-max" onclick="toggleMove('price-toggle-max')"></div>
             </div>
           </div>
         </section>
@@ -908,7 +911,7 @@
           <textarea class="field popup__additional-question__field" placeholder="Unesite svoje želje"></textarea>
         </label>
         <button type="submit" class="send-request popup__request-button">
-          <span class="visually-hidden">Кнопка отправки фидбека</span>
+          <span class="visually-hidden">Кнопка отправки данных</span>
           Pošalji
         </button>
       </form>
@@ -960,14 +963,14 @@
           </div>
         </div>
         <p>
-          Napišite detaljno šta tražite:
+          Napišite detalje za koje mislite da su važni:
         </p>
         <label class="popup__additional-question">
-          <span class="visually-hidden">Напишите ваши пожелания</span>
-          <textarea class="field popup__additional-question__field" placeholder="Unesite svoje želje"></textarea>
+          <span class="visually-hidden">Опишите детали (не обязательно)</span>
+          <textarea class="field popup__additional-question__field" placeholder="Unesite važne detalje"></textarea>
         </label>
-        <button type="submit" class="send-request popup__request-button"">
-          <span class="visually-hidden">Кнопка отправки фидбека</span>
+        <button type="submit" class="send-request popup__request-button">
+          <span class="visually-hidden">Кнопка отправки данных</span>
           Pošalji
         </button>
       </form>

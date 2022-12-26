@@ -579,7 +579,7 @@ button:hover {
 }
 
 .object-link__button:active {
-  background-color: rgba(47, 79, 79, 0.5);
+  background-color: #97a7a7;
   box-shadow: 0 0rem 0.15rem #2f4f4f;
 }
 
@@ -623,8 +623,9 @@ button:hover {
   text-transform: uppercase;
   text-align: center;
   text-shadow: none;
-
+  line-height: 0.8;
   color: #2f4f4f;
+
   border: 3px solid rgba(49, 79, 79, 0.1);
   border-radius: 0.7rem 0.2rem;
   box-shadow: 0 0.1rem 0.1rem #2f4f4f;
@@ -673,10 +674,19 @@ button:hover {
   width: 43%;
 }
 
+.location__defocus {
+  width: 20%;
+  margin: 0.1rem;
+  height: 1.2rem;
+
+  font-size: 0.5rem;
+  color: #97a7a7;
+}
+
 .location__count {
   margin-left: 0.2rem;
 
-  font-size: 0.6rem;
+  font-size: 0.5rem;
   color: #b59f5b;
   vertical-align: super;
 }
@@ -768,8 +778,9 @@ button:hover {
 }
 
 .range-controls .bar {
-  width: 80%;
+  width: 60%;
   height: 0.2rem;
+  margin-left: 20%;
 
   background: #b59f5b;
   box-shadow: 0 0.25rem 0.25rem rgba(47, 79, 79, 0.6);
@@ -790,13 +801,17 @@ button:hover {
   cursor: pointer;
 }
 
+.range-toggle:active {
+  cursor: grabbing;
+}
+
 .range-toggle-min {
-  left: 0;
+  left: 20%;
   margin-top: -0.7rem;
 }
 
 .range-toggle-max {
-  margin-top: -1.3rem;
+  margin-top: -1.25rem;
   left: 80%;
 }
 
@@ -867,7 +882,7 @@ button:hover {
 }
 
 .subscribe__button:active {
-  background-color: rgba(47, 79, 79, 0.5);
+  background-color: #97a7a7;
   box-shadow: 0 0rem 0.15rem #2f4f4f;
 }
 
@@ -959,6 +974,11 @@ button:hover {
   transition: 0.2s;
 }
 
+.phone-number a:active {
+  color: #97a7a7;
+  transition: 0.2s;
+}
+
 .social-links {
   display: flex;
   justify-content: center;
@@ -976,7 +996,7 @@ button:hover {
 }
 
 .social-link__box:hover {
-  animation: 2000ms ease-in 1s normal none 1 running shake;
+  animation: ease-in 0.8s normal none 1 running thrill;
   animation-iteration-count: infinite;
 }
 
@@ -1244,7 +1264,7 @@ button:hover {
 }
 
 .popup__request-button:active {
-  background-color: rgba(47, 79, 79, 0.5);
+  background-color: #97a7a7;
   box-shadow: 0 0rem 0.15rem #2f4f4f;
 }
 
@@ -1311,7 +1331,8 @@ button:hover {
 }
 
 .callback-button:active {
-  background-color: rgba(181, 159, 91, 0.9);
+  z-index: 5;
+  background-color: #b59f5b;
   transition: 0.3s;
 }
 
@@ -1378,6 +1399,36 @@ button:hover {
   }
   100% {
     box-shadow: 0 8px 10px rgba(181, 159, 91, 0.3), 0 0 0 30px rgba(181, 159, 91, 0), 0 0 0 40px rgba(181, 159, 91, 0.0);
+  }
+}
+
+@keyframes thrill {
+  20%, 80% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  30%, 70% {
+    transform: translate3d(2px, 0, 0);
+  }
+  40%, 50%, 60% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  30%, 50% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+@-webkit-keyframes thrill {
+  20%, 80% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  30%, 70% {
+    transform: translate3d(2px, 0, 0);
+  }
+  40%, 50%, 60% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  30%, 50% {
+    transform: translate3d(4px, 0, 0);
   }
 }
 
@@ -1621,14 +1672,6 @@ button:hover {
   .controls .min-meaning p,
   .controls .max-meaning p {
     font-size: 0.8rem;
-  }
-
-  .location {
-    font-size: 0.6rem;
-  }
-
-  .locations a {
-    font-size: 0.4rem;
   }
 
   .agent {

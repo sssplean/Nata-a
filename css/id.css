@@ -117,7 +117,8 @@ button:hover {
 
 .header__logo img {
   width: 100%;
-  box-shadow: 0 0 1rem #000000;
+  filter: drop-shadow(0 0 1rem #000000);
+    -webkit-filter: drop-shadow(0 0 1rem #000000);
 }
 
 .menu {
@@ -537,6 +538,11 @@ button:hover {
   transition: 0.2s;
 }
 
+.phone-number a:active {
+  color: #97a7a7;
+  transition: 0.2s;
+}
+
 .social-links {
   display: flex;
   justify-content: center;
@@ -878,7 +884,7 @@ button:hover {
 }
 
 .popup__request-button:active {
-  background-color: rgba(47, 79, 79, 0.5);
+  background-color: #97a7a7;
   box-shadow: 0 0rem 0.15rem #2f4f4f;
 }
 
@@ -945,7 +951,8 @@ button:hover {
 }
 
 .callback-button:active {
-  background-color: rgba(181, 159, 91, 0.9);
+  z-index: 5;
+  background-color: #b59f5b;
   transition: 0.3s;
 }
 

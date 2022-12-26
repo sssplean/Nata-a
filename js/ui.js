@@ -23,14 +23,14 @@ function initRent() {
 
 // Автоактивация тега "ВСЕ"
 function objectsCheck() {
-  if (((((((
+  if (
     document.getElementById('house').classList.contains('teg-search__activated') &&
-    document.getElementById('apartment').classList.contains('teg-search__activated')) &&
-    document.getElementById('bussines-place').classList.contains('teg-search__activated')) &&
-    document.getElementById('garage').classList.contains('teg-search__activated')) &&
-    document.getElementById('room').classList.contains('teg-search__activated')) &&
-    document.getElementById('hotel').classList.contains('teg-search__activated')) &&
-    document.getElementById('land-for-building').classList.contains('teg-search__activated')) &&
+    document.getElementById('apartment').classList.contains('teg-search__activated') &&
+    document.getElementById('bussines-place').classList.contains('teg-search__activated') &&
+    document.getElementById('garage').classList.contains('teg-search__activated') &&
+    document.getElementById('room').classList.contains('teg-search__activated') &&
+    document.getElementById('hotel').classList.contains('teg-search__activated') &&
+    document.getElementById('land-for-building').classList.contains('teg-search__activated') &&
     document.getElementById('land-plot').classList.contains('teg-search__activated')) {
       document.getElementById('all-objects').classList.add('teg-search__activated')
   }
@@ -112,10 +112,10 @@ function resetPatterns() {
 
 // Автоактивация тега "ВСЕ"
 function allLocationsCheck() {
-  if (((
+  if (
     document.getElementById('hn-interior-locations').classList.contains('teg-search__activated') &&
-    document.getElementById('kotor-interior-locations').classList.contains('teg-search__activated')) &&
-    document.getElementById('tivat-interior-locations').classList.contains('teg-search__activated')) &&
+    document.getElementById('kotor-interior-locations').classList.contains('teg-search__activated') &&
+    document.getElementById('tivat-interior-locations').classList.contains('teg-search__activated') &&
     document.getElementById('budva-interior-locations').classList.contains('teg-search__activated')) {
       document.getElementById('all-locations').classList.add('teg-search__activated');
       document.getElementById('all-locations').classList.remove('teg-search__disactivated');
@@ -178,22 +178,36 @@ function initAllLocationsTegs() {
 // Раскрытие блоков внутренних локаций регионов
 function initInteriorLocationsTeg(teg) {
   let iteriorTeg = teg + '-interior';
-  if (document.getElementById(teg).classList.contains('Interior-Locations__activated')) {
-    document.getElementById(teg).classList.remove('Interior-Locations__activated');
+  if (document.getElementById(teg).style.order == '1') {
     document.getElementById(iteriorTeg).style.display = 'none';
-    document.getElementById('all-locations').style.display = 'block';
-    document.getElementById('herceg-novi').style.display = 'block';
-    document.getElementById('kotor').style.display = 'inline';
-    document.getElementById('tivat').style.display = 'block';
-    document.getElementById('budva').style.display = 'block';
+    document.getElementById('all-locations').classList.remove('location__defocus');
+    document.getElementById('herceg-novi').classList.remove('location__defocus');
+    document.getElementById('kotor').classList.remove('location__defocus');
+    document.getElementById('tivat').classList.remove('location__defocus');
+    document.getElementById('budva').classList.remove('location__defocus');
+    document.getElementById(teg).style.order = '0';
+    document.getElementById(teg).style.width = '43%';
   } else {
-    document.getElementById(teg).classList.add('Interior-Locations__activated')
-    document.getElementById('all-locations').style.display = 'none';
-    document.getElementById('herceg-novi').style.display = 'none';
-    document.getElementById('kotor').style.display = 'none';
-    document.getElementById('tivat').style.display = 'none';
-    document.getElementById('budva').style.display = 'none';
-    document.getElementById(teg).style.display = 'block';
+    document.getElementById('all-locations').classList.add('location__defocus');
+    document.getElementById('herceg-novi').style.order = '0';
+    document.getElementById('herceg-novi').style.width = '43%';
+    document.getElementById('herceg-novi').classList.add('location__defocus');
+    document.getElementById('herceg-novi-interior').style.display = 'none';
+    document.getElementById('kotor').style.order = '0';
+    document.getElementById('kotor').style.width = '43%';
+    document.getElementById('kotor').classList.add('location__defocus');
+    document.getElementById('kotor-interior').style.display = 'none';
+    document.getElementById('tivat').style.order = '0';
+    document.getElementById('tivat').style.width = '43%';
+    document.getElementById('tivat').classList.add('location__defocus');
+    document.getElementById('tivat-interior').style.display = 'none';
+    document.getElementById('budva').style.order = '0';
+    document.getElementById('budva').style.width = '43%';
+    document.getElementById('budva').classList.add('location__defocus');
+    document.getElementById('budva-interior').style.display = 'none';
+    document.getElementById(teg).classList.remove('location__defocus')
+    document.getElementById(teg).style.order = '1';
+    document.getElementById(teg).style.width = '100%';
     document.getElementById(iteriorTeg).style.display = 'flex';
   }
 }
@@ -201,37 +215,37 @@ function initInteriorLocationsTeg(teg) {
 // Херцег Нови
 
 // Автоактивация тега "ВСЕ"
-function HNinteriorLocationsCheck() {
-  if (((((((((((((((((((((((((((((
+function hnInteriorLocationsCheck() {
+  if (
     document.getElementById('hn-centar').classList.contains('teg-search__activated') &&
-    document.getElementById('hn-stari-grad').classList.contains('teg-search__activated')) &&
-    document.getElementById('savina').classList.contains('teg-search__activated')) &&
-    document.getElementById('srbina').classList.contains('teg-search__activated')) &&
-    document.getElementById('dubrava').classList.contains('teg-search__activated')) &&
-    document.getElementById('crveni-krst').classList.contains('teg-search__activated')) &&
-    document.getElementById('topla').classList.contains('teg-search__activated')) &&
-    document.getElementById('igalo').classList.contains('teg-search__activated')) &&
-    document.getElementById('gomila').classList.contains('teg-search__activated')) &&
-    document.getElementById('igalo-petlja').classList.contains('teg-search__activated')) &&
-    document.getElementById('ratisevina').classList.contains('teg-search__activated')) &&
-    document.getElementById('sutorina').classList.contains('teg-search__activated')) &&
-    document.getElementById('suscepan').classList.contains('teg-search__activated')) &&
-    document.getElementById('trebesin').classList.contains('teg-search__activated')) &&
-    document.getElementById('mojdez').classList.contains('teg-search__activated')) &&
-    document.getElementById('cela').classList.contains('teg-search__activated')) &&
-    document.getElementById('zvinje').classList.contains('teg-search__activated')) &&
-    document.getElementById('njivice').classList.contains('teg-search__activated')) &&
-    document.getElementById('podi').classList.contains('teg-search__activated')) &&
-    document.getElementById('kameno').classList.contains('teg-search__activated')) &&
-    document.getElementById('vrbanj').classList.contains('teg-search__activated')) &&
-    document.getElementById('meljine').classList.contains('teg-search__activated')) &&
-    document.getElementById('zelenika').classList.contains('teg-search__activated')) &&
-    document.getElementById('sasovici').classList.contains('teg-search__activated')) &&
-    document.getElementById('kuti').classList.contains('teg-search__activated')) &&
-    document.getElementById('kumbor').classList.contains('teg-search__activated')) &&
-    document.getElementById('denovici').classList.contains('teg-search__activated')) &&
-    document.getElementById('baosici').classList.contains('teg-search__activated')) &&
-    document.getElementById('bijela').classList.contains('teg-search__activated')) &&
+    document.getElementById('hn-stari-grad').classList.contains('teg-search__activated') &&
+    document.getElementById('savina').classList.contains('teg-search__activated') &&
+    document.getElementById('srbina').classList.contains('teg-search__activated') &&
+    document.getElementById('dubrava').classList.contains('teg-search__activated') &&
+    document.getElementById('crveni-krst').classList.contains('teg-search__activated') &&
+    document.getElementById('topla').classList.contains('teg-search__activated') &&
+    document.getElementById('igalo').classList.contains('teg-search__activated') &&
+    document.getElementById('gomila').classList.contains('teg-search__activated') &&
+    document.getElementById('igalo-petlja').classList.contains('teg-search__activated') &&
+    document.getElementById('ratisevina').classList.contains('teg-search__activated') &&
+    document.getElementById('sutorina').classList.contains('teg-search__activated') &&
+    document.getElementById('suscepan').classList.contains('teg-search__activated') &&
+    document.getElementById('trebesin').classList.contains('teg-search__activated') &&
+    document.getElementById('mojdez').classList.contains('teg-search__activated') &&
+    document.getElementById('cela').classList.contains('teg-search__activated') &&
+    document.getElementById('zvinje').classList.contains('teg-search__activated') &&
+    document.getElementById('njivice').classList.contains('teg-search__activated') &&
+    document.getElementById('podi').classList.contains('teg-search__activated') &&
+    document.getElementById('kameno').classList.contains('teg-search__activated') &&
+    document.getElementById('vrbanj').classList.contains('teg-search__activated') &&
+    document.getElementById('meljine').classList.contains('teg-search__activated') &&
+    document.getElementById('zelenika').classList.contains('teg-search__activated') &&
+    document.getElementById('sasovici').classList.contains('teg-search__activated') &&
+    document.getElementById('kuti').classList.contains('teg-search__activated') &&
+    document.getElementById('kumbor').classList.contains('teg-search__activated') &&
+    document.getElementById('denovici').classList.contains('teg-search__activated') &&
+    document.getElementById('baosici').classList.contains('teg-search__activated') &&
+    document.getElementById('bijela').classList.contains('teg-search__activated') &&
     document.getElementById('kamenari').classList.contains('teg-search__activated')) {
       document.getElementById('hn-interior-locations').classList.add('teg-search__activated')
   }
@@ -283,7 +297,7 @@ function initHNLocationTeg(teg) {
     document.getElementById('hn-count').innerHTML++;
     allInitLocationsCount();
   }
-  HNinteriorLocationsCheck();
+  hnInteriorLocationsCheck();
   allLocationsCheck();
 }
 // Ручная активация тега "ВСЕ"
@@ -370,7 +384,7 @@ function initAllHNLocationsTegs() {
 // Котор
 
 // Автоактивация тега "ВСЕ"
-function KotorinteriorLocationsCheck() {
+function kotorInteriorLocationsCheck() {
   if (document.getElementById('kotor-stari-grad').classList.contains('teg-search__activated') &&
     document.getElementById('dobrota').classList.contains('teg-search__activated')) {
       document.getElementById('kotor-interior-locations').classList.add('teg-search__activated')
@@ -395,7 +409,7 @@ function initKotorLocationTeg(teg) {
     document.getElementById('kotor-count').innerHTML++;
     allInitLocationsCount();
   }
-  KotorinteriorLocationsCheck();
+  kotorInteriorLocationsCheck();
   allLocationsCheck();
 }
 // Ручная активация тега "ВСЕ"
@@ -426,7 +440,7 @@ function initAllKotorLocationsTegs() {
 // Тиват
 
 // Автоактивация тега "ВСЕ"
-function TivatinteriorLocationsCheck() {
+function tivaiInteriorLocationsCheck() {
   if (
     document.getElementById('tivat-centar').classList.contains('teg-search__activated') &&
     document.getElementById('lastva').classList.contains('teg-search__activated')) {
@@ -452,7 +466,7 @@ function initTivatLocationTeg(teg) {
     document.getElementById('tivat-count').innerHTML++;
     allInitLocationsCount();
   }
-  TivatinteriorLocationsCheck();
+  tivaiInteriorLocationsCheck();
   allLocationsCheck();
 }
 // Ручная активация тега "ВСЕ"
@@ -483,7 +497,7 @@ function initAllTivatLocationsTegs() {
 // Будва
 
 // Автоактивация тега "ВСЕ"
-function BudvainteriorLocationsCheck() {
+function budvaInteriorLocationsCheck() {
   if (document.getElementById('budva-centar').classList.contains('teg-search__activated') &&
     document.getElementById('becici').classList.contains('teg-search__activated')) {
       document.getElementById('budva-interior-locations').classList.add('teg-search__activated')
@@ -508,7 +522,7 @@ function initBudvaLocationTeg(teg) {
     document.getElementById('budva-count').innerHTML++;
     allInitLocationsCount();
   }
-  BudvainteriorLocationsCheck();
+  budvaInteriorLocationsCheck();
   allLocationsCheck();
 }
 // Ручная активация тега "ВСЕ"
@@ -536,14 +550,6 @@ function initAllBudvaLocationsTegs() {
   }
 }
 
-// Активация тегов через хэш-конторль //
-
-if(window.location.hash == "#sale-start") {
-  initSale();
-} else if(window.location.hash == "#rent-start") {
-  initRent();
-}
-
 // Теги из постов //
 
 function initPostTeg(teg) {
@@ -565,9 +571,33 @@ function closePopup(id) {
   document.getElementById('callback-button').style.visibility = 'visible';
   document.getElementById('callback-button').style.opacity = '1';}
 
+// Активация тегов через хэш-конторль //
+
+if(window.location.hash == "#sale-start") {
+  initSale();
+} else if(window.location.hash == "#rent-start") {
+  initRent();
+}
+
+
+function toggleMove(id) {
+  document.addEventListener('mousemove', toggleMove);
+  console.log(id.clientX);
+  document.removeEventListener('mousemove', toggleMove);
+}
+
+  //document.getElementById(id).style.left = '40%';//
 
 
 
-// 1. Переместить поиск и подписку в мобайл после агентов
-// 2. Автоформирование тегов в постах
-// 3. Работа фильтра
+// 1. Анимация ползунов
+// 2. Работа фильтра
+// 3. Работа фильтра в реальном времени
+// 4. Анимация трендов
+// 5. Слайдинг
+// 6. Форма создания КО
+// 7. Полиязычность
+// 8. Переместить поиск и подписку в мобайл после агентов
+// 9.
+//10.
+//11.
