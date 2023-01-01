@@ -313,65 +313,82 @@
       </form>
     </div>
     <div class="popup" id="seller-popup">
-      <form action="#0" class="popup-form">
-        <button type="button" class="popup__button" onclick="closePopup('seller-popup')">
+      <form class="g-form" id="g-form-2" method="POST" action="" autocomplete="off">
+        <button type="button" class="close__button" onclick="closePopup('seller-popup')">
           <span class="visually-hidden">Закрыть всплывающее окно</span>
         </button>
-        <h2 class="section-title popup__section-title">Zahtev za oglašavanje</h2>
-        <p>
-          Unesite svoj broj telefona:
-        </p>
-        <label class="popup__telefon-question">
-          <span class="visually-hidden">Поле ввода номера телефона</span>
-          <input type="tel" class="field" placeholder="Vaš broj telefona" required>
-        </label>
-        <div class="popup__radio-question">
+        <h2 class="section-title g-form__title g-form__title_main">Zahtev za oglašavanje</h2>
+        <h2 class="g-form__title g-form__title_respond"></h2>
+        <div class="g-form__preloader"></div>
+        <div class="g-form__inputs">
           <p>
-            Šta je potrebno?
+            Unesite svoj broj telefona:
           </p>
-          <div class="radio__box">
-            <label class="popup__radio-answer">
-              <span class="visually-hidden">Выбрать ответ - Продать</span>
-              <input type="radio" class="radio" name="one-or-two" value="1" required>
-              <span class="radio__text">Prodaja</span>
-            </label>
-            <label class="popup__radio-answer">
-              <span class="visually-hidden">Выбрать ответ - Сдать</span>
-              <input type="radio" class="radio" name="one-or-two" value="2" required>
-              <span class="radio__text">Izdavanje</span>
-            </label>
-          </div>
-        <div class="popup__radio-question">
+          <label class="g-form__input-wrapper popup__telefon-question">
+            <span class="visually-hidden">Поле ввода номера телефона</span>
+            <input type="tel" class="field g-form__input g-form__input_name" name="Telefon" placeholder="Vaš broj telefona" required>
+          </label>
+
+          <label class="g-form__input-wrapper popup__radio-question">
+            <p>
+              Šta je potrebno?
+            </p>
+            <div class="radio__box">
+              <label class="popup__radio-answer">
+                <span class="visually-hidden">Выбрать ответ - Продать</span>
+                <input type="radio" class="radio" name="Zahtev" value="1" required>
+                <span class="radio__text">Prodaja</span>
+              </label>
+              <label class="popup__radio-answer">
+                <span class="visually-hidden">Выбрать ответ - Сдать</span>
+                <input type="radio" class="radio" name="Zahtev" value="2" required>
+                <span class="radio__text">Izdavanje</span>
+              </label>
+            </div>
+          </label>
+
+          <label class="g-form__input-wrapper popup__radio-question">
+            <p>
+              Jeste li vlasnik?
+            </p>
+            <div class="radio__box">
+              <label class="popup__radio-answer">
+                <span class="visually-hidden">Выбрать ответ - Да</span>
+                <input type="radio" class="radio" name="Vlasnik" value="Da" required>
+                <span class="radio__text">Da</span>
+              </label>
+              <label class="popup__radio-answer">
+                <span class="visually-hidden">Выбрать ответ - Нет</span>
+                <input type="radio" class="radio" name="Vlasnik" value="Ne" required>
+                <span class="radio__text">Ne</span>
+              </label>
+            </div>
+          </label>
+
           <p>
-            Jeste li vlasnik?
+            Napišite detalje za koje mislite da su važni:
           </p>
-          <div class="radio__box">
-            <label class="popup__radio-answer">
-              <span class="visually-hidden">Выбрать ответ - Да</span>
-              <input type="radio" class="radio" name="yes-or-no" value="1" required>
-              <span class="radio__text">Da</span>
-            </label>
-            <label class="popup__radio-answer">
-              <span class="visually-hidden">Выбрать ответ - Нет</span>
-              <input type="radio" class="radio" name="yes-or-no" value="2" required>
-              <span class="radio__text">Ne</span>
-            </label>
-          </div>
+
+          <label class="g-form__input-wrapper popup__additional-question">
+            <span class="visually-hidden">Опишите детали (не обязательно)</span>
+            <textarea type="text" class="field popup__additional-question__field" name="Dodatni" placeholder="Unesite važne detalje"></textarea>
+          </label>
+
+          <label class="g-form__input-wrapper g-form__input-wrapper_hidden">
+            <label for="honeypot">Помогает бороться со спамом. Должно быть пустым!</label>
+            <input id="honeypot" type="text" name="honeypot" value="">
+          </label>
+
+          <button type="submit" class="g-form__button popup__request-button">
+            <span class="visually-hidden">Кнопка отправки данных</span>
+            Pošalji
+          </button>
         </div>
-        <p>
-          Napišite detalje za koje mislite da su važni:
-        </p>
-        <label class="popup__additional-question">
-          <span class="visually-hidden">Опишите детали (не обязательно)</span>
-          <textarea class="field popup__additional-question__field" placeholder="Unesite važne detalje"></textarea>
-        </label>
-        <button type="submit" class="send-request popup__request-button">
-          <span class="visually-hidden">Кнопка отправки данных</span>
-          Pošalji
-        </button>
       </form>
     </div>
     <div class="preload__hvr-svg"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../js/ui.js"></script>
+    <script src="../js/g-form.js"></script>
   </body>
 </html>

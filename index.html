@@ -666,19 +666,16 @@
             <div class="controls">
               <label class="min-meaning">
                 <p>Min €</p>
-                <input type="text" class="field" name="min" value="0">
+                <input type="text" class="field" id="price-min" onchange="changeMinField()">
               </label>
               <label class="max-meaning">
                 <p>Max €</p>
-                <input type="text" class="field" name="max" value="1000000">
+                <input type="text" class="field" id="price-max" onchange="changeMaxField()">
               </label>
             </div>
             <div class="range-controls">
-              <div class="scale">
-                <div class="bar" id="price-bar"></div>
-              </div>
-              <div class="range-toggle range-toggle-min" id="price-toggle-min" onclick="toggleMove('price-toggle-min')"></div>
-              <div class="range-toggle range-toggle-max" id="price-toggle-max" onclick="toggleMove('price-toggle-max')"></div>
+              <input type="range" class="slider" id="price-min-range" min="0" max="50000" value="10000">
+              <input type="range" class="slider" id="price-max-range" min="50000" max="100000" value="90000">
             </div>
           </div>
         </section>
@@ -696,11 +693,8 @@
               </label>
             </div>
             <div class="range-controls">
-              <div class="scale">
-                <div class="bar"></div>
-              </div>
-              <div class="range-toggle range-toggle-min"></div>
-              <div class="range-toggle range-toggle-max"></div>
+              <input type="range" class="slider" id="price-min-range" min="0" max="50000" value="10000">
+              <input type="range" class="slider" id="price-max-range" min="50000" max="100000" value="90000">
             </div>
           </div>
         </section>
@@ -976,6 +970,8 @@
       </form>
     </div>
     <div class="preload__hvr-svg"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/ui.js"></script>
+    <script src="js/g-form.js"></script>
   </body>
 </html>

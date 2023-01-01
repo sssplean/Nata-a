@@ -579,16 +579,65 @@ if(window.location.hash == "#sale-start") {
   initRent();
 }
 
+// Фунциклирование слайдера //
 
-function toggleMove(id) {
-  document.addEventListener('mousemove', toggleMove);
-  console.log(id.clientX);
-  document.removeEventListener('mousemove', toggleMove);
+let lowSlider = document.getElementById('price-min-range');
+lowSlider.style.background = `linear-gradient(to right, #c1caca 0%, #c1caca ${(lowSlider.value-lowSlider.min)/(lowSlider.max-lowSlider.min) * 100}%, #b59f5b ${(lowSlider.value-lowSlider.min)/(lowSlider.max-lowSlider.min) * 100}%, #b59f5b 100%)`;
+document.getElementById('price-min').value = lowSlider.value;
+let lowWidth = '50%';
+
+let highSlider = document.getElementById('price-max-range');
+highSlider.style.background = `linear-gradient(to right, #b59f5b 0%, #b59f5b ${(highSlider.value-highSlider.min)/(highSlider.max-highSlider.min)*100}%, #c1caca ${(highSlider.value-highSlider.min)/(highSlider.max-highSlider.min)*100}%, #c1caca 100%)`;
+document.getElementById('price-max').value = highSlider.value;
+let highWidth = '50%';
+
+lowSlider.oninput = function() {
+  lowSlider.min = 0;
+  if (document.getElementById('price-max').value == highSlider.max) {
+    highSlider.max++;
+  }
+  this.style.background = `linear-gradient(to right, #c1caca 0%, #c1caca ${(this.value-this.min)/(this.max-this.min)*100}%, #b59f5b ${(this.value-this.min)/(this.max-this.min)*100}%, #b59f5b 100%)`;
+  document.getElementById('price-min').value = this.value;
+  lowSlider.max = document.getElementById('price-max').value;
+  highSlider.min = document.getElementById('price-max').value;
+  lowSlider.style.width = `calc(${document.getElementById('price-max').value / highSlider.max * 100}% - 1%)`;
+  highSlider.style.width = `calc(${100 - (document.getElementById('price-max').value / highSlider.max * 100)}% + 1%)`;
+  highSlider.style.background = '#c1caca';
+};
+
+highSlider.oninput = function() {
+  highSlider.max--;
+  if (document.getElementById('price-min').value == 0) {
+    lowSlider.min = -1;
+  }
+  this.style.background = `linear-gradient(to right, #b59f5b 0%, #b59f5b ${(this.value-this.min)/(this.max-this.min)*100}%, #c1caca ${(this.value-this.min)/(this.max-this.min)*100}%, #c1caca 100%)`;
+  document.getElementById('price-max').value = this.value;
+  highSlider.min = document.getElementById('price-min').value;
+  lowSlider.max = document.getElementById('price-min').value;
+  highSlider.style.width = `calc(${100 - (document.getElementById('price-min').value / highSlider.max * 100)}% - 1%)`;
+  lowSlider.style.width = `calc(${document.getElementById('price-min').value / highSlider.max * 100}% + 1%)`;
+  lowSlider.style.background = '#c1caca';
+};
+
+function changeMinField() {
+  lowSlider.value = document.getElementById('price-min').value;
+  lowSlider.max = document.getElementById('price-max').value;
+  highSlider.min = document.getElementById('price-max').value;
+  lowSlider.style.width = `${document.getElementById('price-max').value / highSlider.max * 100}%`;
+  highSlider.style.width = `${100 - (document.getElementById('price-max').value / highSlider.max * 100)}%`;
+  lowSlider.style.background = `linear-gradient(to right, #c1caca 0%, #c1caca ${(this.value-this.min)/(this.max-this.min)*100}%, #b59f5b ${(this.value-this.min)/(this.max-this.min)*100}%, #b59f5b 100%)`;
+  highSlider.style.background = '#c1caca';
 }
 
-  //document.getElementById(id).style.left = '40%';//
-
-
+function changeMaxField() {
+  highSlider.value = document.getElementById('price-max').value;
+  highSlider.min = document.getElementById('price-min').value;
+  lowSlider.max = document.getElementById('price-min').value;
+  highSlider.style.width = `${100 - (document.getElementById('price-min').value / highSlider.max * 100)}%`;
+  lowSlider.style.width = `${document.getElementById('price-min').value / highSlider.max * 100}%`;
+  highSlider.style.background = `linear-gradient(to right, #b59f5b 0%, #b59f5b ${(this.value-this.min)/(this.max-this.min)*100}%, #c1caca ${(this.value-this.min)/(this.max-this.min)*100}%, #c1caca 100%)`;
+  lowSlider.style.background = '#c1caca';
+}
 
 // 1. Анимация ползунов
 // 2. Работа фильтра

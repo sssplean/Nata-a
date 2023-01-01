@@ -39,14 +39,26 @@ body {
   height: 0.6rem;
   width: 0.6rem;
 }
+
 *::-webkit-scrollbar-track {
   background: #f4f7f6;
 }
+
 *::-webkit-scrollbar-thumb {
   background-color: #f4f7f6;
   border-radius: 0.3rem;
   border: 0.4rem solid rgba(181, 159, 91, 0.5);
 }
+
+/*--------------------BUTTON--------------------*/
+
+button {
+  border-radius: 0.3rem;
+}
+
+button:hover {
+  cursor: pointer;
+  transition: 0.2s;
 }
 
 /*-------------------DESKTOP--------------------*/
@@ -56,15 +68,6 @@ body {
 
 body {
   min-width: 320px;
-}
-
-button {
-  border-radius: 0.3rem;
-}
-
-button:hover {
-  cursor: pointer;
-  transition: 0.2s;
 }
 
 .header {
@@ -324,27 +327,21 @@ button:hover {
 .trend__first {
   background-image: url("../images/1.jpg");
 }
-
 .trend__second {
   background-image: url("../images/1.jpg");
 }
-
 .trend__third {
   background-image: url("../images/1.jpg");
 }
-
 .trend__fourth {
   background-image: url("../images/1.jpg");
 }
-
 .trend__fifth {
   background-image: url("../images/1.jpg");
 }
-
 .trend__sixth {
   background-image: url("../images/1.jpg");
 }
-
 .trend__seventh {
   background-image: url("../images/1.jpg");
 }
@@ -661,7 +658,7 @@ button:hover {
   padding: 0;
 }
 
-#reset {
+.teg-search#reset {
   color: #969393;
 }
 
@@ -771,48 +768,59 @@ button:hover {
   text-align: right;
 }
 
-.range-controls .scale {
-  border-radius: 0.2rem;
-  background: rgba(49, 79, 79, 0.3);
-  box-shadow: 0 0.25rem 0.25rem rgba(47, 79, 79, 0.6);
+.range-controls {
+  display: flex;
 }
 
-.range-controls .bar {
-  width: 60%;
-  height: 0.2rem;
-  margin-left: 20%;
+.slider  {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 50%;
+  height: 0.4rem;
 
   background: #b59f5b;
   box-shadow: 0 0.25rem 0.25rem rgba(47, 79, 79, 0.6);
+  outline: none;
 }
 
-.range-toggle {
-  position: relative;
+.slider::-webkit-slider-runnable-track {
+  height: 0.4rem;
+}
 
+.slider::-moz-range-track {
+  height: 0.4rem;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 0.4rem;
+  height: 0.4rem;
+
+  background: #c1caca;
+  outline: 0.5rem solid #b59f5b;
+  border-radius: 50%;
+  box-shadow: 0 0.35rem 0.35rem 0.35rem rgba(47, 79, 79, 0.6);
+
+  pointer-events: all;
+  position: relative;
+}
+
+.slider::-moz-range-thumb {
+  -moz-appearance: none;
   width: 1.2rem;
   height: 1.2rem;
 
   background: #b59f5b;
   border-radius: 50%;
-  box-shadow: 0 0.25rem 0.25rem rgba(47, 79, 79, 0.6);
+  box-shadow: 0 0.35rem 0.35rem 0.35rem rgba(47, 79, 79, 0.6);
+
+  position: relative;
 }
 
-.range-toggle:hover {
+.slider:hover {
   cursor: pointer;
-}
-
-.range-toggle:active {
-  cursor: grabbing;
-}
-
-.range-toggle-min {
-  left: 20%;
-  margin-top: -0.7rem;
-}
-
-.range-toggle-max {
-  margin-top: -1.25rem;
-  left: 80%;
 }
 
 .search {
@@ -1025,15 +1033,12 @@ button:hover {
 .social-link__telegram {
   background-image: url("../svg/telegram.svg");
 }
-
 .social-link__whatsapp {
   background-image: url("../svg/whatsapp.svg");
 }
-
 .social-link__viber {
   background-image: url("../svg/viber.svg");
 }
-
 .social-link__e-mail {
   background-image: url("../svg/email.svg");
 }
@@ -1041,15 +1046,12 @@ button:hover {
 .social-link__telegram:hover {
   background-image: url("../svg/telegram-hvr.svg");
 }
-
 .social-link__whatsapp:hover {
   background-image: url("../svg/whatsapp-hvr.svg");
 }
-
 .social-link__viber:hover {
   background-image: url("../svg/viber-hvr.svg");
 }
-
 .social-link__e-mail:hover {
   background-image: url("../svg/email-hvr.svg");
 }
@@ -1094,11 +1096,9 @@ button:hover {
 .social-icon__facebook {
   background-image: url("../svg/fb.svg");
 }
-
 .social-icon__instagram {
   background-image: url("../svg/inst.svg");
 }
-
 .social-icon__vkontakte {
   background-image: url("../svg/vk.svg");
 }
@@ -1106,11 +1106,9 @@ button:hover {
 .social-icon__facebook:hover {
   background-image: url("../svg/fb-hvr.svg");
 }
-
 .social-icon__instagram:hover {
   background-image: url("../svg/inst-hvr.svg");
 }
-
 .social-icon__vkontakte:hover {
   background-image: url("../svg/vk-hvr.svg");
 }

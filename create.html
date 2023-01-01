@@ -30,7 +30,7 @@
               <a class="menu__link" href="#0">Zanimljivo</a>
             </li>-->
             <li class="menu__link__box">
-              <a class="menu__link" href="#seller" onclick="openPopup('seller-popup')">Prodavcima</a>
+              <a class="menu__link" href="#seller" onclick="openGform('seller-g-form')">Prodavcima</a>
             </li>
             <li class="menu__link__box">
               <a class="menu__link" href="#about">O nama</a>
@@ -263,36 +263,36 @@
         <p class="copyright__text">Copyright D.O.O. Natašakayeni © 2009–2023</p>
       </a>
     </footer>
-    <div type="button" class="callback-button" id="callback-button" onclick="openPopup('customer-popup')">
+    <div type="button" class="callback-button" id="callback-button" onclick="openg-form('customer-g-form')">
       <div class="text-call">
         <img src="svg/phone.svg" alt="Telefon">
         <span>Zatražite<br>poziv</span>
       </div>
     </div>
-    <div class="popup" id="customer-popup">
-      <form action="#0" class="popup-form">
-        <button type="button" class="popup__button" onclick="closePopup('customer-popup')">
+    <div class="g-form" id="customer-g-form">
+      <form action="#0" class="g-form-form">
+        <button type="button" class="g-form__button" onclick="closeGform('customer-g-form')">
           <span class="visually-hidden">Закрыть всплывающее окно</span>
         </button>
-        <h2 class="section-title popup__section-title">Red poziva</h2>
+        <h2 class="section-title g-form__section-title">Red poziva</h2>
         <p>
           Unesite svoj broj telefona:
         </p>
-        <label class="popup__telefon-question">
+        <label class="g-form__telefon-question">
           <span class="visually-hidden">Поле ввода номера телефона</span>
           <input type="tel" class="field" placeholder="Vaš broj telefona" required>
         </label>
-        <div class="popup__radio-question">
+        <div class="g-form__radio-question">
           <p>
             Da li ste pretplaćeni na e-mail bilten?
           </p>
           <div class="radio__box">
-            <label class="popup__answer">
+            <label class="g-form__answer">
               <span class="visually-hidden">Выбрать ответ - Да</span>
               <input type="radio" class="radio" name="yes-or-no" value="1" required>
               <span class="radio__text">Da</span>
             </label>
-            <label class="popup__answer">
+            <label class="g-form__answer">
               <span class="visually-hidden">Выбрать ответ - Нет</span>
               <input type="radio" class="radio" name="yes-or-no" value="2" required>
               <span class="radio__text">Ne</span>
@@ -302,56 +302,56 @@
         <p>
           Napišite detaljno šta tražite:
         </p>
-        <label class="popup__additional-question">
+        <label class="g-form__additional-question">
           <span class="visually-hidden">Напишите ваши пожелания</span>
-          <textarea class="field popup__additional-question__field" placeholder="Unesite svoje želje"></textarea>
+          <textarea class="field g-form__additional-question__field" placeholder="Unesite svoje želje"></textarea>
         </label>
-        <button type="submit" class="send-request popup__request-button">
+        <button type="submit" class="send-request g-form__request-button">
           <span class="visually-hidden">Кнопка отправки данных</span>
           Pošalji
         </button>
       </form>
     </div>
-    <div class="popup" id="seller-popup">
-      <form action="#0" class="popup-form">
-        <button type="button" class="popup__button" onclick="closePopup('seller-popup')">
+    <div class="g-form" id="seller-g-form">
+      <form action="#0" class="g-form-form">
+        <button type="button" class="g-form__button" onclick="closeGform('seller-g-form')">
           <span class="visually-hidden">Закрыть всплывающее окно</span>
         </button>
-        <h2 class="section-title popup__section-title">Zahtev za oglašavanje</h2>
+        <h2 class="section-title g-form__title_main">Zahtev za oglašavanje</h2>
         <p>
           Unesite svoj broj telefona:
         </p>
-        <label class="popup__telefon-question">
+        <label class="g-form__telefon-question">
           <span class="visually-hidden">Поле ввода номера телефона</span>
           <input type="tel" class="field" placeholder="Vaš broj telefona" required>
         </label>
-        <div class="popup__radio-question">
+        <div class="g-form__radio-question">
           <p>
             Šta je potrebno?
           </p>
           <div class="radio__box">
-            <label class="popup__radio-answer">
+            <label class="g-form__radio-answer">
               <span class="visually-hidden">Выбрать ответ - Продать</span>
               <input type="radio" class="radio" name="one-or-two" value="1" required>
               <span class="radio__text">Prodaja</span>
             </label>
-            <label class="popup__radio-answer">
+            <label class="g-form__radio-answer">
               <span class="visually-hidden">Выбрать ответ - Сдать</span>
               <input type="radio" class="radio" name="one-or-two" value="2" required>
               <span class="radio__text">Izdavanje</span>
             </label>
           </div>
-        <div class="popup__radio-question">
+        <div class="g-form__radio-question">
           <p>
             Jeste li vlasnik?
           </p>
           <div class="radio__box">
-            <label class="popup__radio-answer">
+            <label class="g-form__radio-answer">
               <span class="visually-hidden">Выбрать ответ - Да</span>
               <input type="radio" class="radio" name="yes-or-no" value="1" required>
               <span class="radio__text">Da</span>
             </label>
-            <label class="popup__radio-answer">
+            <label class="g-form__radio-answer">
               <span class="visually-hidden">Выбрать ответ - Нет</span>
               <input type="radio" class="radio" name="yes-or-no" value="2" required>
               <span class="radio__text">Ne</span>
@@ -361,11 +361,11 @@
         <p>
           Napišite detalje za koje mislite da su važni:
         </p>
-        <label class="popup__additional-question">
+        <label class="g-form__additional-question">
           <span class="visually-hidden">Опишите детали (не обязательно)</span>
-          <textarea class="field popup__additional-question__field" placeholder="Unesite važne detalje"></textarea>
+          <textarea class="field g-form__additional-question__field" placeholder="Unesite važne detalje"></textarea>
         </label>
-        <button type="submit" class="send-request popup__request-button">
+        <button type="submit" class="send-request g-form__request-button">
           <span class="visually-hidden">Кнопка отправки данных</span>
           Pošalji
         </button>
@@ -374,6 +374,8 @@
       </form>
     </div>
     <div class="preload__hvr-svg"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/ui.js"></script>
+    <script src="js/g-form.js"></script>
   </body>
 </html>
