@@ -1,30 +1,30 @@
 $(function() {
-	$(".g-form").submit(function (event) {
+	$("#g-form-I").submit(function (event) {
 		event.preventDefault();
 
 		// Ссылка, которую получили на этапе публикации приложения
-		let appLink = "https://script.google.com/macros/s/AKfycbx3uFo3Z3UwZcwAcJrAng4vvCztDmr2YHGCGWAUkI/exec";
+		let appLink = "https://script.google.com/macros/s/AKfycbxt-a6q2-sdIGNzdtgEj55PjFBWZE4ncEN2LIyRJ_YYzS-mtSyZsAklOBP_e1CLRp3P/exec";
 
 		// Сообщение при успешной отправке данных
-		let successRespond = 'Сообщение успешно отправлено. Посмотрите результат <a target="_blank" href="https://docs.google.com/spreadsheets/d/1XcTivCQL4EZJf1x2kB4UwGj5bAi0sfpx1PwtaKgOWHo/edit?usp=sharing">тут</a>';
+		let successRespond = 'Poruka poslata';
 
 		// Сообщение при ошибке в отправке данных
-		let errorRespond = 'Не удалось отправить сообщение. Cвяжитесь с администратором сайта по адресу <a href="mailto:smart-landing@ya.ru">smart-landing@ya.ru</a>';
+		let errorRespond = 'Slanje poruke nije uspelo. Kontaktirajte administratora sajta na <a href="mailto:sssplean@gmail.com">sssplean@gmail.com</a>';
 
 		// Id текущей формы
 		let form = $('#' + $(this).attr('id'))[0];
 
-		// h2 с ответом формы
-		let formRespond = $(this).find('.g-form__title_respond');
-
 		// h2 с заголовком формы
-		let formTitle = $(this).find('.g-form__title_main');
+		let formTitle = $(this).find('#g-form-I-title_main');
+
+		// h2 с ответом формы
+		let formRespond = $(this).find('#g-form-I-title_respond');
 
 		// Блок прелоадера
-		let preloader = $(this).find('.g-form__preloader');
+		let preloader = $(this).find('#g-form-I-preloader');
 
 		// Кнопка отправки формы
-		let submitButton = $(this).find('.g-form__button');
+		let submitButton = $(this).find('#g-form-I-button');
 
 
 		// FormData
@@ -69,8 +69,8 @@ $(function() {
 		preloader.css('opacity', '0');
 
 		// Выводим ответ формы.
-		formRespond.html(successRespond).css('color', '#37b599');
-		
+		formRespond.html(successRespond).css('color', '#b59f5b');
+
 		// Возвращаем активность кнопке отправки
 		submitButton.prop('disabled', false);
 
@@ -81,7 +81,7 @@ $(function() {
 	  	formTitle.css({
 	  		'display': 'none'
 	  	});
-	  	formRespond.html(errorRespond).css('color', '#c64b4b');
+	  	formRespond.html(errorRespond).css('color', '#2f4f4f');
 	  	preloader.css('opacity', '0');
 	  	setTimeout( () => {
 	  		formRespond.css({
@@ -94,14 +94,14 @@ $(function() {
 	  		submitButton.prop('disabled', false);
 	  	}, 5000);
 
-	  	console.log('Гугл не ответил статусом 200');
+	  	console.log('Google nije odgovorio sa statusom 200');
 	  }
 	}).fail(function(res, textStatus, jqXHR) {
 		formTitle.css({
 			'display': 'none'
 		});
 		preloader.css('opacity', '0');
-		formRespond.html('Не удалось отправить сообщение. Cвяжитесь с администратором сайта другим способом').css('color', '#c64b4b');
+		formRespond.html('Slanje poruke nije uspelo. Obratite se administratoru sajta na drugi način').css('color', '#2f4f4f');
 		setTimeout( () => {
 			formRespond.css({
 				'display': 'none'
@@ -109,10 +109,10 @@ $(function() {
 			formTitle.css({
 				'display': 'block'
 			});
-			submitButton.prop('disabled', false); 
+			submitButton.prop('disabled', false);
 		}, 5000);
 
-		console.log('Не удалось выполнить запрос по указанному в скрипте пути');
-	}); 
+		console.log('Izvršavanje zahteva na putanji navedenoj u skripti nije uspelo');
+	});
 });
 }(jQuery));
