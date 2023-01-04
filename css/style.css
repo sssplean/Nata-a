@@ -1212,6 +1212,10 @@ body {
   margin-top: 2rem;
 }
 
+.g-form__antispam-question__field {
+  width: 0;
+}
+
 .radio {
   display: none;
 }
@@ -1894,7 +1898,7 @@ body {
     margin-top: 2rem;
   }
 
-  .search-request,     /*   Возможно переместить в конец, после агентов  */
+  .search-request,
   .subscribe {
     display: none;
   }

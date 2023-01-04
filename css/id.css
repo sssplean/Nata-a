@@ -82,8 +82,7 @@ body {
   background-size: cover;
   background-color: #2f4f4f;
 
-  filter: drop-shadow(0 0.5rem 0.5rem #2f4f4f);
-    -webkit-filter: drop-shadow(0 0.5rem 0.5rem #2f4f4f);
+  box-shadow: 0 0.5rem 0.5rem #2f4f4f;
 }
 
 .header::after {
@@ -224,11 +223,11 @@ body {
   color: inherit;
   text-transform: uppercase;
   text-shadow: 0 0.25rem 0.25rem #000000;
+  transition: 0.2s;
 }
 
 .menu__link:hover {
   color: #b59f5b;
-  transition: 0.2s;
 }
 
 .menu__link:active {
@@ -247,27 +246,6 @@ body {
   overflow: hidden;
 
   border: 0; */
-}
-
-.title {
-  display: block;
-  margin-top: 0.4rem;
-
-  font-size: 1.3rem;
-  line-height: 1.2;
-  font-weight: bold;
-
-  text-shadow: 0 0.25rem 0.25rem #2f4f4f;
-  text-transform: uppercase;
-}
-
-.title a {
-  color: inherit;
-}
-
-.title:hover a {
-  color: #b59f5b;
-  transition: 0.2s;
 }
 
 /*---------------------MAIN---------------------*/
@@ -339,7 +317,8 @@ body {
   left: 0;
   width: auto;
   height: 100%;
-  z-index: 2;
+
+  z-index: 3;
 }
 
 .fullscreen__slideshow .slide {
@@ -361,12 +340,16 @@ body {
   width: auto;
   margin-top: -1.4rem;
   padding: 1rem;
+
   color: #f2f2f2;
   font-weight: bold;
   font-size: 2rem;
-  transition: 0.2s ease;
+
+  background-color: rgba(181, 159, 91, 0);
+  border: 0;
   border-radius: 0 0.6rem 0.6rem 0;
   user-select: none;
+  transition: 0.2s ease;
 }
 
 .next {
@@ -424,18 +407,18 @@ body {
   top: 0;
   right: 0;
   left: 0;
-  z-index: 2;
+  z-index: 3;
 }
 
 .dot {
   cursor: pointer;
-  height: 1rem;
-  width: 1rem;
-  margin: 0 2px;
+  width: 0.7rem;
+  height: 0.7rem;
   background-color: #c1caca;
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.2s ease;
+  opacity: 0.6;
 }
 
 .dot:hover, .active {
@@ -670,7 +653,7 @@ body {
 }
 
 .social-link__box:hover {
-  animation: 2000ms ease-in 1s normal none 1 running shake;
+  animation: ease-in 0.8s normal none 1 running thrill;
   animation-iteration-count: infinite;
 }
 
@@ -1116,6 +1099,36 @@ body {
   }
 }
 
+@keyframes thrill {
+  20%, 80% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  30%, 70% {
+    transform: translate3d(2px, 0, 0);
+  }
+  40%, 50%, 60% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  30%, 50% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+@-webkit-keyframes thrill {
+  20%, 80% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  30%, 70% {
+    transform: translate3d(2px, 0, 0);
+  }
+  40%, 50%, 60% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  30%, 50% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
 @keyframes shake {
   0% {
     transform: rotateZ(0deg);
@@ -1280,7 +1293,7 @@ body {
     background-color: rgba(53, 53, 53, 0.8);
     overflow: scroll;
 
-    transition-duration: 0.50s;
+    transition-duration: 0.5s;
   }
 
   .menu__link__box {
@@ -1420,7 +1433,7 @@ body {
     background-color: rgba(53, 53, 53, 0.8);
     overflow: scroll;
 
-    transition-duration: 0.50s;
+    transition-duration: 0.5s;
   }
 
   .menu__link__box {

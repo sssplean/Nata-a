@@ -35,10 +35,23 @@ function resizeSlideShow() {
     document.getElementById('dots').classList.remove('fullscreen__dots');
     document.getElementById('callback-button').style.visibility = 'visible';
     document.getElementById('callback-button').style.opacity = '1';
+    $('.post__image').css('border-radius','1rem');
+    $('.slide').addClass('fade');
   } else {
     document.getElementById('slideshow').classList.add('fullscreen__slideshow');
     document.getElementById('dots').classList.add('fullscreen__dots');
     document.getElementById('callback-button').style.visibility = 'hidden';
     document.getElementById('callback-button').style.opacity = '0';
+    $('.post__image').css('border-radius','0');
+    $('.slide').removeClass('fade');
   }
 }
+
+document.addEventListener('keydown', function(event) {
+  if (event.keyCode == 37) {
+    document.getElementById('prev').click();
+  }
+  if (event.keyCode == 39) {
+    document.getElementById('next').click();
+  }
+});
