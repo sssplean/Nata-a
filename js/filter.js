@@ -32,6 +32,7 @@ function initRent() {
 // Автоактивация тега "ВСЕ"
 function objectsCheck() {
   if (
+    /*$('.type-of-objects .teg-search').hasClass('teg-search__activated')*/
     document.getElementById('house').classList.contains('teg-search__activated') &&
     document.getElementById('apartment').classList.contains('teg-search__activated') &&
     document.getElementById('bussines-place').classList.contains('teg-search__activated') &&
