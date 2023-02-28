@@ -627,7 +627,7 @@ body {
   line-height: 0.8;
   color: #2f4f4f;
 
-  border: 3px solid rgba(49, 79, 79, 0.1);
+  border: 0.2rem solid rgba(49, 79, 79, 0.1);
   border-radius: 0.7rem 0.2rem;
   box-shadow: 0 0.1rem 0.1rem #2f4f4f;
   filter: none;
@@ -710,15 +710,44 @@ body {
   margin-bottom: 0;
 }
 
-.filter-range {
-  margin: 0.8rem auto 2rem;
-  text-transform: uppercase;
+.values {
+  position: relative;
+  margin: 1rem auto 0;
+  padding: 0.5rem 0;
+
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #b59f5b;
+
+  background-color: #f4f7f6;
+  border: 0.2rem solid rgba(49, 79, 79, 0.1);
+  border-radius: 0.5rem;
+  text-shadow: 0 0.05rem 0.05rem #2f4f4f;
+  box-shadow: 0 0.15rem 0.15rem #2f4f4f;
 }
 
-.controls {
+.values:before {
+  content: "";
+  position: absolute;
+  height: 0;
+  width: 0;
+  border-top: 1rem solid #f4f7f6;
+  border-left: 1rem solid transparent;
+  border-right: 1rem solid transparent;
+  margin: auto;
+  bottom: -1rem;
+  left: 0;
+  right: 0;
+  filter: drop-shadow(0 0.2rem 0.1rem #2f4f4f);
+    -webkit-filter: drop-shadow(0 0.25rem 0.1rem #2f4f4f);
+}
+
+.values__names,
+.ranges {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 1.2rem;
+  justify-content: space-around;
+  margin-bottom: 0.3rem;
 }
 
 .field {
@@ -739,92 +768,101 @@ body {
   transition: 0.2s;
 }
 
-.controls .field {
-  height: 2rem;
-}
-
 .field:focus {
   border: 0.1rem solid #b59f5b;
   outline: none;
 }
 
-.controls .min-meaning,
-.controls .max-meaning {
-  width: 37%;
-
-  font-weight: bold;
+.range__field {
+  width: 35%;
+  height: 1.8rem;
+  padding: 0 0.6rem;
 }
 
-.controls .min-meaning p,
-.controls .max-meaning p {
-  margin-bottom: 0.3rem;
-
-  color: #2f4f4f;
+.square-search .range__field {
+  width: 25%;
 }
 
-.controls .min-meaning p {
-  margin-left: 1rem;
+.slider-container {
+  position: relative;
+  height: 4rem;
 }
 
-.controls .max-meaning p {
-  margin-right: 1rem;
-
-  text-align: right;
+.slider-track {
+  width: 100%;
+  height: 0.4rem;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  border-radius: 0.4rem;
+  box-shadow: 0 0.1rem 0.1rem #2f4f4f;
 }
 
-.range-controls {
-  display: flex;
-}
-
-.slider  {
+input[type="range"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  width: 50%;
-  height: 0.4rem;
-
-  background: #b59f5b;
-  box-shadow: 0 0.25rem 0.25rem rgba(47, 79, 79, 0.6);
+  width: 100%;
   outline: none;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  background-color: transparent;
+  pointer-events: none;
 }
 
-.slider::-webkit-slider-runnable-track {
-  height: 0.4rem;
-}
-
-.slider::-moz-range-track {
-  height: 0.4rem;
-}
-
-.slider::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-runnable-track {
   -webkit-appearance: none;
-  appearance: none;
-  width: 0.4rem;
-  height: 0.4rem;
-
-  background: #c1caca;
-  outline: 0.5rem solid #b59f5b;
-  border-radius: 50%;
-  box-shadow: 0 0.35rem 0.35rem 0.35rem rgba(47, 79, 79, 0.6);
-
-  pointer-events: all;
-  position: relative;
+  height: 5px;
 }
 
-.slider::-moz-range-thumb {
+input[type="range"]::-moz-range-track {
   -moz-appearance: none;
-  width: 1.2rem;
-  height: 1.2rem;
-
-  background: #b59f5b;
-  border-radius: 50%;
-  box-shadow: 0 0.35rem 0.35rem 0.35rem rgba(47, 79, 79, 0.6);
-
-  position: relative;
+  height: 5px;
 }
 
-.slider:hover {
+input[type="range"]::-ms-track {
+  appearance: none;
+  height: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 1.5rem;
+  width: 1.5rem;
+  background-color: #eaeded;
+  border: 0.5rem solid #b59f5b;
   cursor: pointer;
+  margin-top: -0.6rem;
+  pointer-events: auto;
+  border-radius: 50%;
+  box-shadow: 0 0.1rem 0.1rem #2f4f4f;
+}
+
+input[type="range"]::-moz-range-thumb {
+  -webkit-appearance: none;
+  height: 1.5em;
+  width: 1.5em;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #eaeded;
+  border: 0.5rem solid #b59f5b;
+  pointer-events: auto;
+  box-shadow: 0 0.1rem 0.1rem #2f4f4f;
+}
+
+input[type="range"]::-ms-thumb {
+  appearance: none;
+  height: 1.5em;
+  width: 1.5em;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #eaeded;
+  border: 0.5rem solid #b59f5b;
+  pointer-events: auto;
+  box-shadow: 0 0.1rem 0.1rem #2f4f4f;
 }
 
 .search {

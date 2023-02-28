@@ -278,7 +278,7 @@
       <a class="anchor" id="rent-start"></a>
     </section>
     <div class="page-content">
-      <h3 class="section-title page-content-title">Sve ponude</h3>
+      <h3 class="section-title page-content-title" id="page-content-title">Sve ponude</h3>
       <main class="main">
         <div class="posts">
           <article class="post">
@@ -662,40 +662,38 @@
         </section>
         <section class="price-search">
           <h3 class="section-title sidebar__section-title">Cijena</h3>
-          <div class="filter-range">
-            <div class="controls">
-              <label class="min-meaning">
-                <p>Min €</p>
-                <input type="text" class="field" id="price-min" onchange="changeMinField()">
-              </label>
-              <label class="max-meaning">
-                <p>Max €</p>
-                <input type="text" class="field" id="price-max" onchange="changeMaxField()">
-              </label>
+          <div class="values">
+            <div class="values__names">
+              <p>Min €</p>
+              <p>Max €</p>
             </div>
-            <div class="range-controls">
-              <input type="range" class="slider" id="price-min-range" min="0" max="50000" value="10000">
-              <input type="range" class="slider" id="price-max-range" min="50000" max="100000" value="90000">
+            <div class="ranges">
+              <input type="number" class="field range__field" id="price-range1" step="1000" onchange="priceRangeOne()">
+              <input type="number" class="field range__field" id="price-range2" step="1000" onchange="priceRangeTwo()">
             </div>
+          </div>
+          <div class="slider-container">
+              <div class="slider-track" id="price-slider-track"></div>
+              <input type="range" id="price-slider1" min="0" max="500000" value="90000" step="1000" oninput="priceSlideOne()">
+              <input type="range" id="price-slider2" min="0" max="500000" value="410000" step="1000" oninput="priceSlideTwo()">
           </div>
         </section>
         <section class="square-search">
           <h3 class="section-title sidebar__section-title">Kvadratura</h3>
-          <div class="filter-range">
-            <div class="controls">
-              <label class="min-meaning">
-                <p>Min m<sup>2</sup></p>
-                <input type="text" class="field"name="min" value="0">
-              </label>
-              <label class="max-meaning">
-                <p>Max m<sup>2</sup></p>
-                <input type="text" class="field" name="max" value="10000">
-              </label>
+          <div class="values">
+            <div class="values__names">
+              <p>Min m<sup>2</sup></p>
+              <p>Max m<sup>2</sup></p>
             </div>
-            <div class="range-controls">
-              <input type="range" class="slider" id="price-min-range" min="0" max="50000" value="10000">
-              <input type="range" class="slider" id="price-max-range" min="50000" max="100000" value="90000">
+            <div class="ranges">
+              <input type="number" class="field range__field" id="square-range1" onchange="squareRangeOne()">
+              <input type="number" class="field range__field" id="square-range2" onchange="squareRangeTwo()">
             </div>
+          </div>
+          <div class="slider-container">
+              <div class="slider-track" id="square-slider-track"></div>
+              <input type="range" id="square-slider1" min="0" max="100" value="10" oninput="squareSlideOne()">
+              <input type="range" id="square-slider2" min="0" max="100" value="90" oninput="squareSlideTwo()">
           </div>
         </section>
         <section class="search-request">
@@ -990,7 +988,6 @@
       </form>
     </div>
     <div class="preload__hvr-svg"></div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/filter.js"></script>
     <script src="js/display-g-forms.js"></script>
