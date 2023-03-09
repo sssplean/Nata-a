@@ -1410,7 +1410,7 @@ input[type="range"]::-ms-thumb {
 /*------------------PRELOAD-------------------*/
 
 .preload__hvr-svg {
-  visibility:hidden;
+  visibility: hidden;
   background-image:
     url("../svg/telegram-hvr.svg"),
     url("../svg/whatsapp-hvr.svg"),

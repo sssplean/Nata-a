@@ -323,7 +323,8 @@ body {
 .teg-search,
 .all-locations,
 .region,
-.location {
+.location,
+.upload-frame label {
   flex-grow: 1;
   margin: 0.2rem;
   height: 1.8rem;
@@ -346,7 +347,8 @@ body {
 .teg-search:hover,
 .all-locations:hover,
 .region:hover,
-.location:hover {
+.location:hover,
+.upload-frame label {
   cursor: pointer;
   border-color: #c1caca;
 }
@@ -354,7 +356,8 @@ body {
 .teg-search:active,
 .all-locations:active,
 .region:active,
-.location:active {
+.location:active,
+.upload-frame label {
   background-color: #c1caca;
   box-shadow: 0 0 0.1rem #2f4f4f;
 }
@@ -506,6 +509,8 @@ body {
   display: flex;
   align-items: center;
   margin-bottom: 0.3rem;
+
+  font-size: 0.8rem;
 }
 
 .radio__text:hover {
@@ -530,8 +535,159 @@ body {
   background-image: url("../svg/form-circle-bw.svg");
 }
 
-.slides {
+.upload-frame {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 3rem;
+  padding: 2rem;
 
+  background:
+    linear-gradient(90deg, #c1caca 50%, transparent 0) repeat-x,
+    linear-gradient(90deg, #c1caca 50%, transparent 0) repeat-x,
+    linear-gradient(0deg, #c1caca 50%, transparent 0) repeat-y,
+    linear-gradient(0deg, #c1caca 50%, transparent 0) repeat-y;
+  background-size: 1.4rem 0.25rem, 1.4rem 0.25rem, 0.25rem 1.4rem, 0.25rem 1.4rem;
+  background-position: 0 0, 0 100%, 0 0, 100% 0;
+}
+
+.upload-frame.dragover {
+  animation: linearGradientMove .3s infinite linear;
+}
+
+@keyframes linearGradientMove {
+  100% {
+    background-position: 1.4rem 0, -1.4rem 100%, 0 -1.4rem, 100% 1.4rem;
+  }
+}
+
+.upload-frame input[type=file] {
+  position: absolute;
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+}
+
+.upload-image {
+  width: 20%;
+
+  color: #f4f7f6;
+
+  user-select: none;
+}
+
+.upload-frame label {
+  height: inherit;
+  padding: 0.4rem;
+
+  font-weight: bold;
+
+  border-color: #f4f7f6;
+}
+
+.upload-frame input[type=file]:focus + label {
+  padding: 0.5rem;
+  border: 0.05rem solid #2b2a2a;
+}
+
+.preview-board,
+.previews-board {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  position: relative;
+  border-radius: 0.3rem;
+}
+
+.preview-board .image {
+  margin-bottom: 2rem;
+  height: 30rem;
+  border-radius: 0.9rem;
+  box-shadow: 0 0.15rem 0.15rem #2f4f4f;
+  overflow: hidden;
+  position: relative;
+}
+
+.previews-board .image,
+.previews-board .video,
+.delete-image {
+  margin-bottom: 1rem;
+  height: 10rem;
+  border-radius: 0.3rem;
+  box-shadow: 0 0.15rem 0.15rem #2f4f4f;
+  overflow: hidden;
+  position: relative;
+}
+
+.previews-board .video::after {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+
+  background-image: url("../svg/video.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70%;
+}
+
+.delete-image {
+  width: 7.5rem;
+}
+
+.delete-image {
+  background-image: url("../svg/multiple-delete.svg");
+  background-size: 100%;
+}
+
+.delete-image:hover {
+  background-color: #c1caca;
+  background-image: url("../svg/multiple-delete-hvr.svg");
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.preview-board .image img,
+.previews-board .image img {
+  height: 100%;
+  width: 100%;
+}
+
+.preview-board .image span,
+.previews-board .image span,
+.previews-board .video span {
+  position: absolute;
+  top: -0.3rem;
+  right: 0.12rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  z-index: 2;
+}
+
+.preview-board .image span {
+  top: -0.4rem;
+  right: 0.4rem;
+  font-size: 3rem;
+}
+
+.preview-board .image span:hover,
+.previews-board .image span:hover,
+.previews-board .video span:hover {
+  color: #ffffff;
+}
+
+.preview-board .span--hidden,
+.previews-board .span--hidden {
+  visibility: hidden;
 }
 
 .create__card {
@@ -563,6 +719,26 @@ body {
 .create__card:active {
   background-color: #97a7a7;
   box-shadow: 0 0rem 0.15rem #2f4f4f;
+}
+
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+
+  border: 0; */
+}
+
+.preload__hvr-svg {
+  visibility: hidden;
+  background-image:
+    url("../svg/multiple-delete-hvr.svg"),
+  background-repeat: no-repeat;
 }
 
 /*-------------------TABLET-------------------*/

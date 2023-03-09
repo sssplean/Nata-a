@@ -67,7 +67,7 @@
                 </div>
                 <div class="interior__locations" id="herceg-novi-interior">
                   <button type="button" class="location" id="hn-centar" onclick="initLocationTeg('hn-centar')">
-                    HN Centar
+                    Centar
                   </button>
                   <button type="button" class="location" id="hn-stari-grad" onclick="initLocationTeg('hn-stari-grad')">
                     Stari Grad
@@ -213,6 +213,7 @@
                   <p>(unesite ime i pritisnite ENTER)</p>
                   <input type="text" class="field region__field" id="region-plus-field" onchange="addRegion('region-plus')">
                 </div>
+                <h3 class="section-title" id="selected-location"></h3>
                </section>
               </div>
               <div class="main__tegs">
@@ -298,7 +299,7 @@
                     </label>
                   </div>
                   <div class="specification">
-                    <h3 class="specification-title">Cena u evrima</h3>
+                    <h3 class="specification-title">Cijena u evrima</h3>
                     <input type="text" class="field large-field">
                   </div>
                   <div class="specification">
@@ -306,7 +307,7 @@
                     <label class="radio__answer">
                       <span class="visually-hidden">Выбрать ответ - Нет</span>
                       <input type="checkbox" class="radio" name="new-price" required>
-                      <span class="radio__text">Nova cena</span>
+                      <span class="radio__text">Nova cijena</span>
                     </label>
                     <input type="text" class="field large-field">
                   </div>
@@ -314,8 +315,19 @@
               </div>
             </div>
             <div class="slides">
-              <h3 class="section-title">6. Opis: </h3>
-
+              <h3 class="section-title">6. Dodavanje foto i video: </h3>
+              <div class="upload-frame" id="single__upload">
+                <img class="upload-image" id="single__upload-image" src="svg/single-upload.svg">
+                <output class="preview-board" id="main-image__preview"></output>
+                <input type="file" class="images-upload" id="main-image" accept="image/png, image/jpeg, image/gif, image/pjpeg" title="Jedna fotografija mora biti odabrana"required>
+                <label for="main-image" id="main-image__label">Dodajte jednu glavnu fotografiju</label><span>ili ga prevucite ovdje</span>
+              </div>
+              <div class="upload-frame" id="multiple__upload">
+                <img class="upload-image" id="multiple__upload-image" src="svg/multiple-upload.svg">
+                <output class="previews-board" id="images__previews"></output>
+                <input type="file" class="images-upload" id="images" multiple="multiple" accept="image/png, image/jpeg, image/gif, video/*" title="Morate odabrati najmanje jedan fajl" required>
+                <label for="images" id="images__label">Dodajte sve foto i video</label><span>ili ih prevucite ovdje</span>
+              </div>
             </div>
             <div class="description">
               <h3 class="section-title">7. Opis: </h3>
@@ -336,7 +348,7 @@
                 <textarea class="field description__field" placeholder="Engleski jezik" required></textarea>
               </label>
             </div>
-            <button type="submit" class="create__card" onclick="createCard()">
+            <button type="submit" class="create__card">
               <span class="visually-hidden">Кнопка создания карточки объекта</span>
               Napravite karticu objekta
             </button>
@@ -344,6 +356,7 @@
         </article>
       </main>
     </div>
+    <div class="preload__hvr-svg"></div>
     <script src="js/create.js"></script>
   </body>
 </html>
