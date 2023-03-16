@@ -406,14 +406,19 @@ body {
 .interior__locations {
   display: none;
   flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 1rem;
-
-  list-style-type: none;
+  justify-content: center;
+  margin: 0.5rem 0;
 
   border-radius: 1rem 1rem 3rem 3rem;
   background-color: #f4f7f6;
   box-shadow: 0 0.15rem 0.15rem #2f4f4f;
+}
+
+.interior__locations {
+  justify-content: space-between;
+  padding: 1rem;
+
+  list-style-type: none;
 }
 
 .location__label {
@@ -438,7 +443,8 @@ body {
   margin-right: 1rem;
   margin-bottom: 1rem;
   padding: 0.3rem;
-  width: 6rem;
+  width: 7rem;
+  min-height: 6rem;
 
   border: 0.3rem solid #c1caca;
   border-radius: 1rem;

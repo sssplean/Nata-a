@@ -1,7 +1,17 @@
+// Название объекта //
+
+let objectType = "Stan-Apartman";
+let offerType = "na prodaju";
+function giveName() {
+  document.getElementById('object-name').value = `${objectType} ${offerType}`;
+}
+giveName();
+
 // Выбор локаций //
 
 // Раскрытие блоков внутренних локаций регионов
 function initInteriorLocationsTeg(teg) {
+  let i;
   let location = document.getElementById(teg);
   let iteriorLocation = document.getElementById(teg + '-interior');
   if (location.style.order == '1') {
@@ -10,20 +20,20 @@ function initInteriorLocationsTeg(teg) {
     location.style.width = '43%';
     let nodeList = document.querySelectorAll('.location-search .region');
     let length = nodeList.length;
-    for (let i = 0; i < length; i++) {
+    for (i = 0; i < length; i++) {
       nodeList[i].classList.remove('location__defocus');
     }
   } else {
     let nodeList = document.querySelectorAll('.location-search .region');
     let length = nodeList.length;
-    for (let i = 0; i < length; i++) {
+    for (i = 0; i < length; i++) {
       nodeList[i].style.order = '0';
       nodeList[i].style.width = '43%';
       nodeList[i].classList.add('location__defocus');
     }
     let interiorLocationsNodeList = document.querySelectorAll('.interior__locations');
     let interiorLocationslength = interiorLocationsNodeList.length;
-    for (let i = 0; i < interiorLocationslength; i++) {
+    for (i = 0; i < interiorLocationslength; i++) {
       interiorLocationsNodeList[i].style.display = 'none';
     }
     location.classList.remove('location__defocus')
@@ -35,11 +45,13 @@ function initInteriorLocationsTeg(teg) {
 
 // Выбор локации
 function initLocationTeg(teg) {
+  let i;
   let location = document.getElementById(teg);
   let region = String(location.parentElement.id).split('-');
   let regionPopped = region.pop();
   region = region.join(' ');
   let locationField = document.getElementById(teg + '-label');
+  let selectedLocation = document.getElementById('selected-location');
   if (location.classList.contains('add__location')) {
     if (locationField.classList.contains('visually-hidden')) {
       locationField.classList.remove('visually-hidden');
@@ -49,28 +61,31 @@ function initLocationTeg(teg) {
   } else {
     let nodeList = document.querySelectorAll('.location__label');
     let length = nodeList.length;
-    for (let i = 0; i < length; i++) {
+    for (i = 0; i < length; i++) {
       nodeList[i].classList.add('visually-hidden');
     }
   }
   if (location.classList.contains('teg-search__activated')) {
     location.classList.remove('teg-search__activated');
-    document.getElementById('location-title').innerHTML = '2. Lokacije';
+    selectedLocation.innerHTML = '</br>';
+    objectLocation = "";
   } else {
     let nodeList = document.querySelectorAll('.location');
     let length = nodeList.length;
-    for (let i = 0; i < length; i++) {
+    for (i = 0; i < length; i++) {
       nodeList[i].classList.remove('teg-search__activated');
     }
     if (!location.classList.contains('add__location')) {
       location.classList.add('teg-search__activated');
-      document.getElementById('selected-location').innerHTML = `${region} -${location.innerHTML}`
+      selectedLocation.innerHTML = `${region} (&nbsp;${location.innerHTML}&nbsp;)`
     }
   }
+  giveName();
 }
 // Добавить новый регион
 function addRegion(teg) {
   let value = document.getElementById(teg + '-field').value.toLowerCase();
+  value = value[0].toUpperCase() + value.slice(1); // Первая буква заглавная
   document.getElementById('regions-buttons').innerHTML +=
     `<button type="button" class="region teg-search__disactivated" id="${value}" onclick="initInteriorLocationsTeg('${value}')">
        ${value}
@@ -92,38 +107,38 @@ function addRegion(teg) {
 function addLocation(div, teg) {
   let button = document.getElementById(teg);
   let value = document.getElementById(teg + '-field').value.toLowerCase();
+  value = value[0].toUpperCase() + value.slice(1); // Первая буква заглавная
   document.getElementById(teg + '-label').classList.add('visually-hidden');
   button.classList.remove('teg-search__activated');
   button.classList.add('visually-hidden');
   document.getElementById(div).innerHTML +=
-    `<button type="button" class="location" id="${value}" onclick="initLocationTeg('${value}')">
-      ${value}
-     </button>`;
-  initLocationTeg(`${value}`)
+    `<button type="button" class="location" id="${value}" onclick="initLocationTeg('${value}')">${value}</button>`;
+  initLocationTeg(`${value}`);
 }
 
 // Типы сделки //
 
 let rent = document.getElementById('rent');
 let sale = document.getElementById('sale');
+let idType = "PR";
+let rentPriceSpecification = document.getElementById('rent-price-specification');
 // Активация тега продажи
 function initSale() {
-  if (sale.classList.contains('teg-search__activated')) {
-    sale.classList.remove('teg-search__activated');
-  } else {
-    rent.classList.remove('teg-search__activated');
-    sale.classList.add('teg-search__activated');
-  }
+  rent.classList.remove('teg-search__activated');
+  sale.classList.add('teg-search__activated');
+  offerType = "na prodaju";
+  idType = "PR";
+  rentPriceSpecification.innerHTML = "";
+  giveName();
 }
 // Активация тега аренды
 function initRent() {
-  let rent = document.getElementById('rent');
-  if (rent.classList.contains('teg-search__activated')) {
-    rent.classList.remove('teg-search__activated');
-  } else {
-    sale.classList.remove('teg-search__activated');
-    rent.classList.add('teg-search__activated');
-  }
+  sale.classList.remove('teg-search__activated');
+  rent.classList.add('teg-search__activated');
+  offerType = "za iznajmljivanje";
+  idType = "IZ";
+  rentPriceSpecification.innerHTML = "mjesečno";
+  giveName();
 }
 
 // Типы объектов //
@@ -131,16 +146,14 @@ function initRent() {
 // Активация тега типа объекта
 function initObjectTeg(teg) {
   let button = document.getElementById(teg);
-  if (button.classList.contains('teg-search__activated')) {
-    button.classList.remove('teg-search__activated');
-  } else {
-    let nodeList = document.querySelectorAll('.type-of-objects .teg-search');
-    let length = nodeList.length;
-    for (let i = 0; i < length; i++) {
-      nodeList[i].classList.remove('teg-search__activated');
-    }
-    button.classList.add('teg-search__activated');
+  let nodeList = document.querySelectorAll('.type-of-objects .teg-search');
+  let length = nodeList.length;
+  for (let i = 0; i < length; i++) {
+    nodeList[i].classList.remove('teg-search__activated');
   }
+  button.classList.add('teg-search__activated');
+  objectType = button.innerHTML;
+  giveName();
 }
 
 // Дополнительные опции //
@@ -186,9 +199,11 @@ mainInput.addEventListener("change", () => {
   commonInput.value = null; // Позволит загрузить один и тот же файл подряд
 });
 // Отобразить главное фото
+let fotosUrls = [];
 function displayImage() {
   let images = "";
   mainImage.forEach((image, index) => {
+    fotosUrls.push(URL.createObjectURL(image));
     images = `<div class="image">
                 <img src="${URL.createObjectURL(image)}" alt="image">
                 <span onclick="deleteImage(${index})">&times;</span>
@@ -230,19 +245,22 @@ commonInput.addEventListener("change", () => {
   commonInput.value = null; // Позволит загрузить один и тот же файл подряд
 });
 // Отобразить остальные фото и видео
+let videosUrls = [];
 function displayImages() {
   let files = "";
   commonImagesArray.forEach((image, index) => {
+    fotosUrls.push(URL.createObjectURL(image));
     files += `<div class="image">
                 <img src="${URL.createObjectURL(image)}" alt="image">
                 <span onclick="deleteImages(${index})">&times;</span>
-               </div>`
+              </div>`
   });
-  commonVideosArray.forEach((image, index) => {
+  commonVideosArray.forEach((video, index) => {
+    videosUrls.push(URL.createObjectURL(video));
     files += `<div class="video">
-                <video src="${URL.createObjectURL(image)}" alt="video" width="100%" height="100%"></video>
+                <video src="${URL.createObjectURL(video)}" alt="video" width="100%" height="100%"></video>
                 <span onclick="deleteVideos(${index})">&times;</span>
-               </div>`
+              </div>`
   });
   if (commonImagesArray.length + commonVideosArray.length > 1) {
     files += `<img class="delete-image" id="multiple__delete-image"
@@ -364,7 +382,159 @@ function multipleDrop(event) {
   commonInput.value = null; // Позволит загрузить один и тот же файл подряд
 }
 
+// Предпросмотр карточки объекта //
 
+
+function objectPreview() {
+  // Дата создания карточки объекта
+  const months = ['januar', 'februar', 'mart', 'april', 'maj', 'jun', 'jul', 'avgust', 'septembar', 'oktobar', 'novembar', 'decembar'];
+  const today = new Date();
+  const day = String(today.getDate()).padStart(2, '0');
+  const month = months[String(today.getMonth())];
+  const year = today.getFullYear();
+  let date = `${day} ${month} ${year}`;
+
+  // ID присваиваемый новой карточке объекта
+
+  // Добавление фото и видео
+  let slideShow = "";
+  let dots = "";
+  function createSlideShow() {
+    let fotosUrlsLength = fotosUrls.length;
+    let videosUrlsLength = videosUrls.length;
+    let filesLength = fotosUrlsLength + videosUrlsLength;
+    for (let i = 0; i < fotosUrlsLength; i++) {
+      slideShow += `<div class="slide fade" onclick="resizeSlideShow()">
+                      <div class="numbertext">${i + 1} / ${filesLength}</div>
+                      <img class="post__image" src="${fotosUrls[i]}" alt="foto">
+                      <div class="slide__text"></div>
+                    </div>`
+    }
+    for (let i = 0; i < videosUrlsLength; i++) {
+      slideShow += `<div class="slide fade" onclick="resizeSlideShow()">
+                      <div class="numbertext">${fotosUrlsLength + 1 + i} / ${filesLength}</div>
+                      <video class="post__image post__video" src="${videosUrls[i]}" autoplay loop controls></video>
+                      <div class="slide__text"></div>
+                    </div>`
+    }
+    for (let i = 0; i < filesLength; i++) {
+      dots += `<span class="dot" onclick="currentSlide(${i + 1})"></span> `
+    }
+  }
+  createSlideShow();
+
+  document.querySelector('html').innerHTML =
+  `<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregled kartice objekta</title>
+    <link rel="shortcut icon" href="svg/title-logo-bw.svg" type="image/x-icon">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/id.css">
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__container">
+        <h1 class="header__title">Pregled kartice objekta</h1>
+      </div>
+    </header>
+    <div class="page-content">
+      <h2 class="page-content-title">${document.getElementById('selected-location').innerHTML} : ${document.getElementById('object-name').value}</h2>
+      <main class="main">
+        <article class="post">
+          <div class="slideshow__wrapper">
+            <div class="slideshow-container" id="slideshow">
+              ${slideShow}
+              <button class="slideshow__button" id="prev" onclick="plusSlides(-1)">&#10094;</button>
+              <button class="slideshow__button" id="next" onclick="plusSlides(1)">&#10095;</button>
+            </div>
+            <div class="dots__container" id="dots">
+              ${dots}
+            </div>
+          </div>
+          <div class="post__content">
+            <div class="post__infos">
+              <div class="post__info">
+                <h3 class="id-title">Publikacija: </h3>
+                <time class="post__datetime" datetime="2019-12-13">${date}</time>
+              </div>
+              <div class="post__info">
+                <h3 class="id-title">Broj objekta: </h3>
+                <div class="object__id">${idType}00002</div>
+              </div>
+            </div>
+            <div class="post__lead">
+              <h3 class="id-title">Opis: </h3>
+              <p>
+                ${document.getElementById('object-description').value}
+              </p>
+            </div>
+            <div class="specifications">
+              <div class="specification">
+                <h3 class="specification-title">Broj soba</h3>
+                <div class="specification__box">
+                  <p class="specification-icon specification__rooms"></p>
+                  <p class="specification-text"> = ${document.getElementById('rooms number').value}</p>
+                </div>
+              </div>
+              <div class="specification">
+                <h3 class="specification-title">Broj kupatila</h3>
+                <div class="specification__box">
+                  <p class="specification-icon specification__baths"></p>
+                  <p class="specification-text"> = ${document.getElementById('bathrooms number').value}</p>
+                </div>
+              </div>
+              <div class="specification">
+                <h3 class="specification-title">Broj terase</h3>
+                <div class="specification__box">
+                  <p class="specification-icon specification__terrace"></p>
+                  <p class="specification-text"> = ${document.getElementById('terraces number').value}</p>
+                </div>
+              </div>
+              <div class="specification">
+                <h3 class="specification-title">Dvorište</h3>
+                <div class="specification__box">
+                  <p class="specification-icon specification__yard"></p>
+                  <p class="specification-text"> = ${document.getElementById('yard area').value} m<sup>2</sup></p>
+                </div class="specification">
+              </div>
+              <div class="specification">
+                <h3 class="specification-title">Kvadratura</h3>
+                <div class="specification__box">
+                  <p class="specification-icon specification__square"></p>
+                  <p class="specification-text"> = ${document.getElementById('object area').value} m<sup>2</sup></p>
+                </div>
+              </div>
+              <div class="specification">
+                <h3 class="specification-title">Parking</h3>
+                <div class="specification__box">
+                  <p class="specification-icon specification__parking"></p>
+                  <p class="specification-text"> = ${document.querySelector('input[name="Parking"]:checked').value}</p>
+                </div>
+              </div>
+              <div class="specification">
+                <h3 class="specification-title">Cijena ${rentPriceSpecification.innerHTML}</h3>
+                <div class="specification__box">
+                  <p class="specification-icon specification__price"></p>
+                  <p class="specification-text"> = ${Intl.NumberFormat('ru-RU').format(document.getElementById('price').value)}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </main>
+      <button type="submit" class="create__card" onclick="">
+        <span class="visually-hidden">Кнопка создания карточки объекта</span>
+        Kreirajte karticu objekta
+      </button>
+    </div>
+    <div id="callback-button"></div>
+    <script src="js/slideshow.js"></script>
+  </body>`;
+}
+
+//-2. Поправить filter.js
+//-1. Добавить текст
 // 0. Безопасность
 // 1. Полиязычность
 // 2. Поиск по сайту

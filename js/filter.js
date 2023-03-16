@@ -35,61 +35,55 @@ function initRent() {
 
 // Автоактивация тега "ВСЕ"
 function objectsCheck() {
-  if (
-    /*$('.type-of-objects .teg-search').hasClass('teg-search__activated')*/
-    document.getElementById('house').classList.contains('teg-search__activated') &&
-    document.getElementById('apartment').classList.contains('teg-search__activated') &&
-    document.getElementById('bussines-place').classList.contains('teg-search__activated') &&
-    document.getElementById('garage').classList.contains('teg-search__activated') &&
-    document.getElementById('room').classList.contains('teg-search__activated') &&
-    document.getElementById('hotel').classList.contains('teg-search__activated') &&
-    document.getElementById('land-for-building').classList.contains('teg-search__activated') &&
-    document.getElementById('land-plot').classList.contains('teg-search__activated')) {
-      document.getElementById('all-objects').classList.add('teg-search__activated')
+  let generalTeg = document.getElementById('all-objects');
+  /*let allTypes = document.querySelectorAll('.type-teg');
+  allTypes.forEach(type => {
+    if (!type.classList.contains('teg-search__activated')) {
+      return;
+    } else {
+      generalTeg.classList.add('teg-search__activated');
+    }
+  });
+}*/
+  if (document.getElementById('house').classList.contains('teg-search__activated') &&
+  document.getElementById('apartment').classList.contains('teg-search__activated') &&
+  document.getElementById('bussines-place').classList.contains('teg-search__activated') &&
+  document.getElementById('garage').classList.contains('teg-search__activated') &&
+  document.getElementById('room').classList.contains('teg-search__activated') &&
+  document.getElementById('building').classList.contains('teg-search__activated') &&
+  document.getElementById('hotel').classList.contains('teg-search__activated') &&
+  document.getElementById('land-for-building').classList.contains('teg-search__activated') &&
+  document.getElementById('land-plot').classList.contains('teg-search__activated')) {
+    generalTeg.classList.add('teg-search__activated');
+  } else {
+    generalTeg.classList.remove('teg-search__activated');
   }
 }
 // Активация тега типа объекта
 function initObjectTeg(teg) {
-  if (document.getElementById('all-objects').classList.contains('teg-search__activated')) {
-    document.getElementById('all-objects').classList.remove('teg-search__activated');
-    document.getElementById('house').classList.remove('teg-search__activated');
-    document.getElementById('apartment').classList.remove('teg-search__activated');
-    document.getElementById('bussines-place').classList.remove('teg-search__activated');
-    document.getElementById('garage').classList.remove('teg-search__activated');
-    document.getElementById('room').classList.remove('teg-search__activated');
-    document.getElementById('hotel').classList.remove('teg-search__activated');
-    document.getElementById('land-for-building').classList.remove('teg-search__activated');
-    document.getElementById('land-plot').classList.remove('teg-search__activated');
-  }
-  if (document.getElementById(teg).classList.contains('teg-search__activated')) {
-    document.getElementById(teg).classList.remove('teg-search__activated');
+  let button = document.getElementById(teg);
+  if (button.classList.contains('teg-search__activated')) {
+    button.classList.remove('teg-search__activated');
+    objectsCheck();
   } else {
-    document.getElementById(teg).classList.add('teg-search__activated');
+    button.classList.add('teg-search__activated');
+    objectsCheck();
   }
-  objectsCheck();
 }
 // Ручная активация тега "ВСЕ"
 function initAllObjectsTegs() {
   if (document.getElementById('all-objects').classList.contains('teg-search__activated')) {
-    document.getElementById('all-objects').classList.remove('teg-search__activated');
-    document.getElementById('house').classList.remove('teg-search__activated');
-    document.getElementById('apartment').classList.remove('teg-search__activated');
-    document.getElementById('bussines-place').classList.remove('teg-search__activated');
-    document.getElementById('garage').classList.remove('teg-search__activated');
-    document.getElementById('room').classList.remove('teg-search__activated');
-    document.getElementById('hotel').classList.remove('teg-search__activated');
-    document.getElementById('land-for-building').classList.remove('teg-search__activated');
-    document.getElementById('land-plot').classList.remove('teg-search__activated');
+    let allTypes = document.querySelectorAll('.type-teg');
+    allTypes.forEach((type, i) => {
+      type.classList.remove('teg-search__activated');
+      document.getElementById('all-objects').classList.remove('teg-search__activated');
+    });
   } else {
-    document.getElementById('house').classList.add('teg-search__activated');
-    document.getElementById('apartment').classList.add('teg-search__activated');
-    document.getElementById('bussines-place').classList.add('teg-search__activated');
-    document.getElementById('garage').classList.add('teg-search__activated');
-    document.getElementById('room').classList.add('teg-search__activated');
-    document.getElementById('hotel').classList.add('teg-search__activated');
-    document.getElementById('land-for-building').classList.add('teg-search__activated');
-    document.getElementById('land-plot').classList.add('teg-search__activated');
-    document.getElementById('all-objects').classList.add('teg-search__activated');
+    let allTypes = document.querySelectorAll('.type-teg');
+    allTypes.forEach((type, i) => {
+      type.classList.add('teg-search__activated');
+      document.getElementById('all-objects').classList.add('teg-search__activated');
+    });
   }
 }
 
@@ -105,18 +99,10 @@ function initPatternTeg(teg) {
 }
 // Сброс всех дополнительных поисковых опций
 function resetPatterns() {
-    document.getElementById('one-room').classList.remove('teg-search__activated');
-    document.getElementById('two-rooms').classList.remove('teg-search__activated');
-    document.getElementById('three-rooms').classList.remove('teg-search__activated');
-    document.getElementById('four-rooms').classList.remove('teg-search__activated');
-    document.getElementById('one-bathroom').classList.remove('teg-search__activated');
-    document.getElementById('two-bathrooms').classList.remove('teg-search__activated');
-    document.getElementById('three-bathrooms').classList.remove('teg-search__activated');
-    document.getElementById('terrace').classList.remove('teg-search__activated');
-    document.getElementById('garden').classList.remove('teg-search__activated');
-    document.getElementById('land').classList.remove('teg-search__activated');
-    document.getElementById('renovated').classList.remove('teg-search__activated');
-    document.getElementById('sea-view').classList.remove('teg-search__activated');
+  let allPatterns = document.querySelectorAll('.pattern-teg');
+  allPatterns.forEach((ptrn, i) => {
+    ptrn.classList.remove('teg-search__activated');
+  });
 }
 
 // Выбор локаций //

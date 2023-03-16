@@ -26,11 +26,11 @@
             <li class="menu__link__box">
               <a class="menu__link" href="index.html#rent-start">Izdavanje</a>
             </li>
-            <!--<li class="menu__link__box">
-              <a class="menu__link" href="#0">Zanimljivo</a>
-            </li>-->
-            <li class="menu__link__box">                 <!--Временная ссылка-->
-              <a class="menu__link" href="create.html#create-start" target="_blank">Još&nbspjedanj&nbspobjekat</a>
+            <li class="menu__link__box">
+              <a class="menu__link" href="create.html#create-start" target="_blank">Uredi&nbspobjekat</a>
+            </li>
+            <li class="menu__link__box">
+              <a class="menu__link" href="create.html#create-start" target="_blank">Još&nbspjedan&nbspobjekat</a>
             </li>
           </ul>
         </nav>
@@ -43,195 +43,124 @@
         <article class="post">
           <form class="post__content">
             <h3 class="section-title">1. Naziv objekta</h3>
-            <input type="text" class="field" required>
+            <input type="text" class="field" id="object-name" required>
             <div class="post__tegs">
               <div class="side__tegs">
                <section class="tegs-search location-search" id="location-search">
                 <h3 class="section-title">2. Lokacije</h3>
                 <div class="regions-buttons" id="regions-buttons">
-                  <button type="button" class="region teg-search__disactivated" id="herceg-novi" onclick="initInteriorLocationsTeg('herceg-novi')">
+                  <button type="button" class="region teg-search__disactivated" id="Herceg-novi" onclick="initInteriorLocationsTeg('Herceg-novi')">
                     Herceg Novi
                   </button>
-                  <button type="button" class="region teg-search__disactivated" id="kotor" onclick="initInteriorLocationsTeg('kotor')">
+                  <button type="button" class="region teg-search__disactivated" id="Kotor" onclick="initInteriorLocationsTeg('Kotor')">
                     Kotor
                   </button>
-                  <button type="button" class="region teg-search__disactivated" id="tivat" onclick="initInteriorLocationsTeg('tivat')">
+                  <button type="button" class="region teg-search__disactivated" id="Tivat" onclick="initInteriorLocationsTeg('Tivat')">
                     Tivat
                   </button>
-                  <button type="button" class="region teg-search__disactivated" id="budva" onclick="initInteriorLocationsTeg('budva')">
+                  <button type="button" class="region teg-search__disactivated" id="Budva" onclick="initInteriorLocationsTeg('Budva')">
                     Budva
                   </button>
                   <button type="button" class="region add__location teg-search__disactivated" id="region-plus" onclick="initInteriorLocationsTeg('region-plus')">
                     + region
                   </button>
                 </div>
-                <div class="interior__locations" id="herceg-novi-interior">
-                  <button type="button" class="location" id="hn-centar" onclick="initLocationTeg('hn-centar')">
-                    Centar
-                  </button>
-                  <button type="button" class="location" id="hn-stari-grad" onclick="initLocationTeg('hn-stari-grad')">
-                    Stari Grad
-                  </button>
-                  <button type="button" class="location" id="savina" onclick="initLocationTeg('savina')">
-                    Savina
-                  </button>
-                  <button type="button" class="location" id="srbina" onclick="initLocationTeg('srbina')">
-                    Srbina
-                  </button>
-                  <button type="button" class="location" id="dubrava" onclick="initLocationTeg('dubrava')">
-                    Dubrava
-                  </button>
-                  <button type="button" class="location" id="crveni-krst" onclick="initLocationTeg('crveni-krst')">
-                    Crveni Krst
-                  </button>
-                  <button type="button" class="location" id="topla" onclick="initLocationTeg('topla')">
-                    Topla
-                  </button>
-                  <button type="button" class="location" id="igalo" onclick="initLocationTeg('igalo')">
-                    Igalo
-                  </button>
-                  <button type="button" class="location" id="gomila" onclick="initLocationTeg('gomila')">
-                    Gomila
-                  </button>
-                  <button type="button" class="location" id="igalo-petlja" onclick="initLocationTeg('igalo-petlja')">
-                    Igalo-Petlja
-                  </button>
-                  <button type="button" class="location" id="ratisevina" onclick="initLocationTeg('ratisevina')">
-                    Ratiševina
-                  </button>
-                  <button type="button" class="location" id="sutorina" onclick="initLocationTeg('sutorina')">
-                    Sutorina
-                  </button>
-                  <button type="button" class="location" id="suscepan" onclick="initLocationTeg('suscepan')">
-                    Sušćepan
-                  </button>
-                  <button type="button" class="location" id="trebesin" onclick="initLocationTeg('trebesin')">
-                    Trebesin
-                  </button>
-                  <button type="button" class="location" id="mojdez" onclick="initLocationTeg('mojdez')">
-                    Mojdez
-                  </button>
-                  <button type="button" class="location" id="cela" onclick="initLocationTeg('cela')">
-                    Čela
-                  </button>
-                  <button type="button" class="location" id="zvinje" onclick="initLocationTeg('zvinje')">
-                    Zvinje
-                  </button>
-                  <button type="button" class="location" id="njivice" onclick="initLocationTeg('njivice')">
-                    Njivice
-                  </button>
-                  <button type="button" class="location" id="podi" onclick="initLocationTeg('podi')">
-                    Podi
-                  </button>
-                  <button type="button" class="location" id="kameno" onclick="initLocationTeg('kameno')">
-                    Kameno
-                  </button>
-                  <button type="button" class="location" id="vrbanj" onclick="initLocationTeg('vrbanj')">
-                    Vrbanj
-                  </button>
-                  <button type="button" class="location" id="meljine" onclick="initLocationTeg('meljine')">
-                    Meljine
-                  </button>
-                  <button type="button" class="location" id="zelenika" onclick="initLocationTeg('zelenika')">
-                    Zelenika
-                  </button>
-                  <button type="button" class="location" id="sasovici" onclick="initLocationTeg('sasovici')">
-                    Sasovići
-                  </button>
-                  <button type="button" class="location" id="kuti" onclick="initLocationTeg('kuti')">
-                    Kuti
-                  </button>
-                  <button type="button" class="location" id="kumbor" onclick="initLocationTeg('kumbor')">
-                    Kumbor
-                  </button>
-                  <button type="button" class="location" id="denovici" onclick="initLocationTeg('denovici')">
-                    Đenovići
-                  </button>
-                  <button type="button" class="location" id="baosici" onclick="initLocationTeg('baosici')">
-                    Baošići
-                  </button>
-                  <button type="button" class="location" id="bijela" onclick="initLocationTeg('bijela')">
-                    Bijela
-                  </button>
-                  <button type="button" class="location" id="kamenari" onclick="initLocationTeg('kamenari')">
-                    Kamenari
-                  </button>
-                  <button type="button" class="location add__location" id="hn-plus" onclick="initLocationTeg('hn-plus')">
+                <h3 class="section-title" id="selected-location"></br></br></h3>
+                <div class="interior__locations" id="Herceg-novi-interior">
+                  <button type="button" class="location" id="HN-centar" onclick="initLocationTeg('HN-centar')">Centar</button>
+                  <button type="button" class="location" id="HN-stari-grad" onclick="initLocationTeg('HN-stari-grad')">Stari&nbsp;Grad</button>
+                  <button type="button" class="location" id="Savina" onclick="initLocationTeg('Savina')">Savina</button>
+                  <button type="button" class="location" id="Srbina" onclick="initLocationTeg('Srbina')">Srbina</button>
+                  <button type="button" class="location" id="Dubrava" onclick="initLocationTeg('Dubrava')">Dubrava</button>
+                  <button type="button" class="location" id="Crveni-krst" onclick="initLocationTeg('Crveni-krst')">Crveni&nbsp;Krst</button>
+                  <button type="button" class="location" id="Topla" onclick="initLocationTeg('Topla')">Topla</button>
+                  <button type="button" class="location" id="Igalo" onclick="initLocationTeg('Igalo')">Igalo</button>
+                  <button type="button" class="location" id="Gomila" onclick="initLocationTeg('Gomila')">Gomila</button>
+                  <button type="button" class="location" id="Igalo-petlja" onclick="initLocationTeg('Igalo-petlja')">Igalo-Petlja</button>
+                  <button type="button" class="location" id="Ratisevina" onclick="initLocationTeg('Ratisevina')">Ratiševina</button>
+                  <button type="button" class="location" id="Sutorina" onclick="initLocationTeg('Sutorina')">Sutorina</button>
+                  <button type="button" class="location" id="Suscepan" onclick="initLocationTeg('Suscepan')">Sušćepan</button>
+                  <button type="button" class="location" id="Trebesin" onclick="initLocationTeg('Trebesin')">Trebesin</button>
+                  <button type="button" class="location" id="Mojdez" onclick="initLocationTeg('Mojdez')">Mojdez</button>
+                  <button type="button" class="location" id="Cela" onclick="initLocationTeg('Cela')">Čela</button>
+                  <button type="button" class="location" id="Zvinje" onclick="initLocationTeg('Zvinje')">Zvinje</button>
+                  <button type="button" class="location" id="Njivice" onclick="initLocationTeg('Njivice')">Njivice</button>
+                  <button type="button" class="location" id="Podi" onclick="initLocationTeg('Podi')">Podi</button>
+                  <button type="button" class="location" id="Kameno" onclick="initLocationTeg('Kameno')">Kameno</button>
+                  <button type="button" class="location" id="Vrbanj" onclick="initLocationTeg('Vrbanj')">Vrbanj</button>
+                  <button type="button" class="location" id="Meljine" onclick="initLocationTeg('Meljine')">Meljine</button>
+                  <button type="button" class="location" id="Zelenika" onclick="initLocationTeg('Zelenika')">Zelenika</button>
+                  <button type="button" class="location" id="Sasovici" onclick="initLocationTeg('Sasovici')">Sasovići</button>
+                  <button type="button" class="location" id="Kuti" onclick="initLocationTeg('Kuti')">Kuti</button>
+                  <button type="button" class="location" id="Kumbor" onclick="initLocationTeg('Kumbor')">Kumbor</button>
+                  <button type="button" class="location" id="Denovici" onclick="initLocationTeg('Denovici')">Đenovići</button>
+                  <button type="button" class="location" id="daosici" onclick="initLocationTeg('Baosici')">Baošići</button>
+                  <button type="button" class="location" id="Bijela" onclick="initLocationTeg('Bijela')">Bijela</button>
+                  <button type="button" class="location" id="Kamenari" onclick="initLocationTeg('Kamenari')">Kamenari</button>
+                  <button type="button" class="location add__location" id="HN-plus" onclick="initLocationTeg('HN-plus')">
                     + location
                   </button>
-                  <label class="location__label visually-hidden" id="hn-plus-label">
+                  <label class="location__label visually-hidden" id="HN-plus-label">
                     <p>(unesite ime i pritisnite ENTER)</p>
-                    <input type="text" class="field location__field" id="hn-plus-field" onchange="addLocation('hn-interior', 'hn-plus')">
+                    <input type="text" class="field location__field" id="HN-plus-field" onchange="addLocation('HN-interior', 'HN-plus')">
                   </label>
                 </div>
-                <div class="interior__locations" id="kotor-interior">
-                  <button type="button" class="location" id="kotor-stari-grad" onclick="initLocationTeg('kotor-stari-grad')">
-                    Stari Grad
-                  </button>
-                  <button type="button" class="location" id="dobrota" onclick="initLocationTeg('dobrota')">
-                    Dobrota
-                  </button>
-                  <button type="button" class="location add__location" id="kotor-plus" onclick="initLocationTeg('kotor-plus')">
+                <div class="interior__locations" id="Kotor-interior">
+                  <button type="button" class="location" id="Kotor-stari-grad" onclick="initLocationTeg('Kotor-stari-grad')">Stari&nbsp;Grad</button>
+                  <button type="button" class="location" id="Dobrota" onclick="initLocationTeg('Dobrota')">Dobrota</button>
+                  <button type="button" class="location add__location" id="Kotor-plus" onclick="initLocationTeg('Kotor-plus')">
                     + location
                   </button>
-                  <label class="location__label visually-hidden" id="kotor-plus-label">
+                  <label class="location__label visually-hidden" id="Kotor-plus-label">
                     <p>(unesite ime i pritisnite ENTER)</p>
-                    <input type="text" class="field location__field" id="kotor-plus-field" onchange="addLocation('kotor-interior', 'kotor-plus')">
+                    <input type="text" class="field location__field" id="Kotor-plus-field" onchange="addLocation('Kotor-interior', 'Kotor-plus')">
                   </label>
                 </div>
-                <div class="interior__locations" id="tivat-interior">
-                  <button type="button" class="location" id="tivat-centar" onclick="initLocationTeg('tivat-centar')">
-                    Centar
-                  </button>
-                  <button type="button" class="location" id="lastva" onclick="initLocationTeg('lastva')">
-                    Lastva
-                  </button>
-                  <button type="button" class="location add__location" id="tivat-plus" onclick="initLocationTeg('tivat-plus')">
+                <div class="interior__locations" id="Tivat-interior">
+                  <button type="button" class="location" id="Tivat-centar" onclick="initLocationTeg('Tivat-centar')">Centar</button>
+                  <button type="button" class="location" id="Lastva" onclick="initLocationTeg('Lastva')">Lastva</button>
+                  <button type="button" class="location add__location" id="Tivat-plus" onclick="initLocationTeg('Tivat-plus')">
                     + location
                   </button>
-                  <label class="location__label visually-hidden" id="tivat-plus-label">
+                  <label class="location__label visually-hidden" id="Tivat-plus-label">
                     <p>(unesite ime i pritisnite ENTER)</p>
-                    <input type="text" class="field location__field" id="tivat-plus-field" onchange="addLocation('tivat-interior', 'tivat-plus')">
+                    <input type="text" class="field location__field" id="Tivat-plus-field" onchange="addLocation('Tivat-interior', 'Tivat-plus')">
                   </label>
                 </div>
-                <div class="interior__locations" id="budva-interior">
-                  <button type="button" class="location" id="budva-centar" onclick="initLocationTeg('budva-centar')">
-                    Centar
-                  </button>
-                  <button type="button" class="location" id="becici" onclick="initLocationTeg('becici')">
-                    Bečići
-                  </button>
-                  <button type="button" class="location add__location" id="budva-plus" onclick="initLocationTeg('budva-plus')">
+                <div class="interior__locations" id="Budva-interior">
+                  <button type="button" class="location" id="Budva-centar" onclick="initLocationTeg('Budva-centar')">Centar</button>
+                  <button type="button" class="location" id="Becici" onclick="initLocationTeg('Becici')">Bečići</button>
+                  <button type="button" class="location add__location" id="Budva-plus" onclick="initLocationTeg('Budva-plus')">
                     + location
                   </button>
-                  <label class="location__label visually-hidden" id="budva-plus-label">
+                  <label class="location__label visually-hidden" id="Budva-plus-label">
                     <p>(unesite ime i pritisnite ENTER)</p>
-                    <input type="text" class="field location__field" id="budva-plus-field" onchange="addLocation('budva-interior', 'budva-plus')">
+                    <input type="text" class="field location__field" id="Budva-plus-field" onchange="addLocation('Budva-interior', 'Budva-plus')">
                   </label>
                 </div>
                 <div class="interior__locations" id="region-plus-interior">
                   <p>(unesite ime i pritisnite ENTER)</p>
                   <input type="text" class="field region__field" id="region-plus-field" onchange="addRegion('region-plus')">
                 </div>
-                <h3 class="section-title" id="selected-location"></h3>
                </section>
               </div>
               <div class="main__tegs">
                 <section class="tegs-search type-of-search">
                   <h3 class="section-title">3. Vrsta oglasa</h3>
                   <div class="teg-search-buttons">
-                    <button type="button" class="teg-search" id="sale" onclick="initSale()">Prodaja</button>
+                    <button type="button" class="teg-search teg-search__activated" id="sale" onclick="initSale()">Prodaja</button>
                     <button type="button" class="teg-search" id="rent" onclick="initRent()">Izdavanje</button>
                   </div>
                 </section>
                 <section class="tegs-search type-of-objects">
                   <h3 class="section-title">4. Vrsta objekta</h3>
                   <div class="teg-search-buttons">
+                    <button type="button" class="teg-search teg-search__activated" id="apartment" onclick="initObjectTeg('apartment')">Stan-Apartman</button>
                     <button type="button" class="teg-search" id="house" onclick="initObjectTeg('house')">Kuća</button>
-                    <button type="button" class="teg-search" id="apartment" onclick="initObjectTeg('apartment')">Stan-Apartman</button>
                     <button type="button" class="teg-search" id="bussines-place" onclick="initObjectTeg('bussines-place')">Poslovni Prostor</button>
                     <button type="button" class="teg-search" id="garage" onclick="initObjectTeg('garage')">Garaža</button>
                     <button type="button" class="teg-search" id="room" onclick="initObjectTeg('room')">Soba</button>
+                    <button type="button" class="teg-search" id="building" onclick="initObjectTeg('building')">Zgrada</button>
                     <button type="button" class="teg-search" id="hotel" onclick="initObjectTeg('hotel')">Hotel</button>
                     <button type="button" class="teg-search" id="land-for-building" onclick="initObjectTeg('land-for-building')">Građevinsko Zemljište</button>
                     <button type="button" class="teg-search" id="land-plot" onclick="initObjectTeg('land-plot')">Zemljište</button>
@@ -240,14 +169,6 @@
                 <section class="tegs-search detail-tags">
                   <h3 class="section-title">5. Oznake</h3>
                   <div class="teg-search-buttons">
-                    <button type="button" class="teg-search" id="one-room" onclick="initPatternTeg('one-room')">Jedna soba</button>
-                    <button type="button" class="teg-search" id="two-rooms" onclick="initPatternTeg('two-rooms')">Dve sobe</button>
-                    <button type="button" class="teg-search" id="three-rooms" onclick="initPatternTeg('three-rooms')">Tri sobe</button>
-                    <button type="button" class="teg-search" id="four-rooms" onclick="initPatternTeg('four-rooms')">Četiri sobe</button>
-                    <button type="button" class="teg-search" id="one-bathroom" onclick="initPatternTeg('one-bathroom')">Jedna kupatila</button>
-                    <button type="button" class="teg-search" id="two-bathrooms" onclick="initPatternTeg('two-bathrooms')">Dva kupatila</button>
-                    <button type="button" class="teg-search" id="three-bathrooms" onclick="initPatternTeg('three-bathrooms')">Tri kupatila</button>
-                    <button type="button" class="teg-search" id="terrace" onclick="initPatternTeg('terrace')">Terasa</button>
                     <button type="button" class="teg-search" id="garden" onclick="initPatternTeg('garden')">Bašta</button>
                     <button type="button" class="teg-search" id="land" onclick="initPatternTeg('land')">Zemljište</button>
                     <button type="button" class="teg-search" id="renovated" onclick="initPatternTeg('renovated')">Renovirano</button>
@@ -257,60 +178,59 @@
                 </section>
                 <div class="specifications">
                   <div class="specification">
-                    <h3 class="specification-title">Kvadratura m<sup>2</sup></h3>
-                    <input type="text" class="field middle-field">
+                    <h3 class="specification-title">Broj soba</h3>
+                    <input type="text" class="field small-field" id="rooms number" required>
+                  </div>
+                  <div class="specification">
+                    <h3 class="specification-title">Broj kupatila</h3>
+                    <input type="text" class="field small-field" id="bathrooms number" required>
+                  </div>
+                  <div class="specification">
+                    <h3 class="specification-title">Broj terase</h3>
+                    <input type="text" class="field small-field" id="terraces number" required>
                   </div>
                   <div class="specification">
                     <h3 class="specification-title">Dvorište m<sup>2</sup></h3>
-                    <input type="text" class="field middle-field">
-                    <label class="radio__answer">
-                      <span class="visually-hidden">Выбрать ответ - Нет</span>
-                      <input type="checkbox" class="radio" name="Yard" value="Ne" required>
-                      <span class="radio__text">Ne</span>
-                    </label>
+                    <input type="text" class="field middle-field" id="yard area" required>
+                  </div>
+                  <div class="specification">
+                    <h3 class="specification-title">Kvadratura m<sup>2</sup></h3>
+                    <input type="text" class="field middle-field" id="object area" required>
                   </div>
                   <div class="specification">
                     <h3 class="specification-title">Parking</h3>
                     <div class="radio__box">
                       <label class="radio__answer">
                         <span class="visually-hidden">Выбрать ответ - Да</span>
-                        <input type="radio" class="radio" name="Parking" value="Da" required>
+                        <input type="radio" class="radio" name="Parking" value="Da">
                         <span class="radio__text">Da</span>
                       </label>
                       <label class="radio__answer">
                         <span class="visually-hidden">Выбрать ответ - Нет</span>
-                        <input type="radio" class="radio" name="Parking" value="Ne" required>
+                        <input type="radio" class="radio" name="Parking" value="Ne">
                         <span class="radio__text">Ne</span>
                       </label>
                       <label class="radio__answer">
                         <span class="visually-hidden">Выбрать ответ - Парковочное место входит а стоимость</span>
-                        <input type="radio" class="radio" name="Parking" value="Lični" required>
+                        <input type="radio" class="radio" name="Parking" value="Lični">
                         <span class="radio__text">Lični</span>
                       </label>
                     </div>
                   </div>
                   <div class="specification">
-                    <h3 class="specification-title">Broj terase</h3>
-                    <input type="text" class="field small-field">
+                    <h3 class="specification-title">Cijena u eurima</h3>
+                    <input type="text" class="field large-field" id="price" pattern="[0-9]" required>
+                    <h3 class="specification-title" id="rent-price-specification"></h3>
+                  </div>
+                  <!--<div class="specification">
+                    <h3 class="specification-title">Popust</h3>
                     <label class="radio__answer">
                       <span class="visually-hidden">Выбрать ответ - Нет</span>
-                      <input type="checkbox" class="radio" name="terrace" value="Ne" required>
-                      <span class="radio__text">Ne</span>
-                    </label>
-                  </div>
-                  <div class="specification">
-                    <h3 class="specification-title">Cijena u evrima</h3>
-                    <input type="text" class="field large-field">
-                  </div>
-                  <div class="specification">
-                    <h3 class="specification-title">Popust</sup></h3>
-                    <label class="radio__answer">
-                      <span class="visually-hidden">Выбрать ответ - Нет</span>
-                      <input type="checkbox" class="radio" name="new-price" required>
+                      <input type="checkbox" class="radio" name="new-price">
                       <span class="radio__text">Nova cijena</span>
                     </label>
                     <input type="text" class="field large-field">
-                  </div>
+                  </div>-->
                 </div>
               </div>
             </div>
@@ -319,13 +239,13 @@
               <div class="upload-frame" id="single__upload">
                 <img class="upload-image" id="single__upload-image" src="svg/single-upload.svg">
                 <output class="preview-board" id="main-image__preview"></output>
-                <input type="file" class="images-upload" id="main-image" accept="image/png, image/jpeg, image/gif, image/pjpeg" title="Jedna fotografija mora biti odabrana"required>
+                <input type="file" class="images-upload" id="main-image" accept="image/png, image/jpeg, image/gif, image/pjpeg" title="Jedna fotografija mora biti odabrana">
                 <label for="main-image" id="main-image__label">Dodajte jednu glavnu fotografiju</label><span>ili ga prevucite ovdje</span>
               </div>
               <div class="upload-frame" id="multiple__upload">
                 <img class="upload-image" id="multiple__upload-image" src="svg/multiple-upload.svg">
                 <output class="previews-board" id="images__previews"></output>
-                <input type="file" class="images-upload" id="images" multiple="multiple" accept="image/png, image/jpeg, image/gif, video/*" title="Morate odabrati najmanje jedan fajl" required>
+                <input type="file" class="images-upload" id="images" multiple="multiple" accept="image/png, image/jpeg, image/gif, video/*" title="Morate odabrati najmanje jedan fajl">
                 <label for="images" id="images__label">Dodajte sve foto i video</label><span>ili ih prevucite ovdje</span>
               </div>
             </div>
@@ -333,7 +253,7 @@
               <h3 class="section-title">7. Opis: </h3>
               <label>
                 <span class="visually-hidden">Напишите ваши пожелания</span>
-                <textarea class="field description__field" placeholder="Crnogorski jezik" required></textarea>
+                <textarea class="field description__field" placeholder="Crnogorski jezik" id="object-description" required></textarea>
               </label>
               <label>
                 <span class="visually-hidden">Напишите ваши пожелания</span>
@@ -348,9 +268,9 @@
                 <textarea class="field description__field" placeholder="Engleski jezik" required></textarea>
               </label>
             </div>
-            <button type="submit" class="create__card">
-              <span class="visually-hidden">Кнопка создания карточки объекта</span>
-              Napravite karticu objekta
+            <button type="submit" class="create__card" onclick="objectPreview(), showSlides(slideIndex)">
+              <span class="visually-hidden">Кнопка предварительного просмотра карточки объекта</span>
+              Pregled kartice objekta
             </button>
           </form>
         </article>
@@ -358,5 +278,6 @@
     </div>
     <div class="preload__hvr-svg"></div>
     <script src="js/create.js"></script>
+    <script src="js/slideshow.js"></script>
   </body>
 </html>
