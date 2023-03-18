@@ -43,7 +43,7 @@
         <article class="post">
           <form class="post__content">
             <h3 class="section-title">1. Naziv objekta</h3>
-            <input type="text" class="field" id="object-name" required>
+            <input type="text" class="field" id="object-name" minlength="4" required>
             <div class="post__tegs">
               <div class="side__tegs">
                <section class="tegs-search location-search" id="location-search">
@@ -81,9 +81,9 @@
                   <button type="button" class="location" id="Sutorina" onclick="initLocationTeg('Sutorina')">Sutorina</button>
                   <button type="button" class="location" id="Suscepan" onclick="initLocationTeg('Suscepan')">Sušćepan</button>
                   <button type="button" class="location" id="Trebesin" onclick="initLocationTeg('Trebesin')">Trebesin</button>
-                  <button type="button" class="location" id="Mojdez" onclick="initLocationTeg('Mojdez')">Mojdez</button>
+                  <button type="button" class="location" id="Mojdez" onclick="initLocationTeg('Mojdez')">Mojdež</button>
                   <button type="button" class="location" id="Cela" onclick="initLocationTeg('Cela')">Čela</button>
-                  <button type="button" class="location" id="Zvinje" onclick="initLocationTeg('Zvinje')">Zvinje</button>
+                  <button type="button" class="location" id="Zvinje" onclick="initLocationTeg('Zvinje')">Žvinje</button>
                   <button type="button" class="location" id="Njivice" onclick="initLocationTeg('Njivice')">Njivice</button>
                   <button type="button" class="location" id="Podi" onclick="initLocationTeg('Podi')">Podi</button>
                   <button type="button" class="location" id="Kameno" onclick="initLocationTeg('Kameno')">Kameno</button>
@@ -179,23 +179,23 @@
                 <div class="specifications">
                   <div class="specification">
                     <h3 class="specification-title">Broj soba</h3>
-                    <input type="text" class="field small-field" id="rooms number" required>
+                    <input type="number" class="field middle-field" id="rooms number" min="0" required>
                   </div>
                   <div class="specification">
                     <h3 class="specification-title">Broj kupatila</h3>
-                    <input type="text" class="field small-field" id="bathrooms number" required>
+                    <input type="number" class="field middle-field" id="bathrooms number" min="0" required>
                   </div>
                   <div class="specification">
                     <h3 class="specification-title">Broj terase</h3>
-                    <input type="text" class="field small-field" id="terraces number" required>
+                    <input type="number" class="field middle-field" id="terraces number" min="0" required>
                   </div>
                   <div class="specification">
                     <h3 class="specification-title">Dvorište m<sup>2</sup></h3>
-                    <input type="text" class="field middle-field" id="yard area" required>
+                    <input type="number" class="field large-field" id="yard area" min="0" required>
                   </div>
                   <div class="specification">
                     <h3 class="specification-title">Kvadratura m<sup>2</sup></h3>
-                    <input type="text" class="field middle-field" id="object area" required>
+                    <input type="number" class="field large-field" id="object area" min="0" required>
                   </div>
                   <div class="specification">
                     <h3 class="specification-title">Parking</h3>
@@ -219,7 +219,7 @@
                   </div>
                   <div class="specification">
                     <h3 class="specification-title">Cijena u eurima</h3>
-                    <input type="text" class="field large-field" id="price" pattern="[0-9]" required>
+                    <input type="number" class="field large-field" id="price" min="0" required>
                     <h3 class="specification-title" id="rent-price-specification"></h3>
                   </div>
                   <!--<div class="specification">
@@ -252,20 +252,20 @@
             <div class="description">
               <h3 class="section-title">7. Opis: </h3>
               <label>
-                <span class="visually-hidden">Напишите ваши пожелания</span>
-                <textarea class="field description__field" placeholder="Crnogorski jezik" id="object-description" required></textarea>
+                <span class="visually-hidden">Опишите объект</span>
+                <textarea class="field description__field" placeholder="Crnogorski jezik" id="object-description" minlength="15" required></textarea>
               </label>
               <label>
-                <span class="visually-hidden">Напишите ваши пожелания</span>
-                <textarea class="field description__field" placeholder="Ruski jezik" required></textarea>
+                <span class="visually-hidden">Опишите объект</span>
+                <textarea class="field description__field" placeholder="Ruski jezik" minlength="15" required></textarea>
               </label>
               <label>
-                <span class="visually-hidden">Напишите ваши пожелания</span>
-                <textarea class="field description__field" placeholder="Nemački jezik" required></textarea>
+                <span class="visually-hidden">Опишите объект</span>
+                <textarea class="field description__field" placeholder="Nemački jezik" minlength="15" required></textarea>
               </label>
               <label>
-                <span class="visually-hidden">Напишите ваши пожелания</span>
-                <textarea class="field description__field" placeholder="Engleski jezik" required></textarea>
+                <span class="visually-hidden">Опишите объект</span>
+                <textarea class="field description__field" placeholder="Engleski jezik" minlength="15" required></textarea>
               </label>
             </div>
             <button type="submit" class="create__card" onclick="objectPreview(), showSlides(slideIndex)">
